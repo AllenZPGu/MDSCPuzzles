@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Solomon Sans';
+    src: url("Solomon Sans/Solomon Sans Normal.2e0b14f4caf4.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Solomon Sans';
+    src: url("Solomon Sans/Solomon Sans Normal Italic.f81300534f21.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Solomon Sans';
+    src: url("Solomon Sans/Solomon Sans Black.274b5e2012eb.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Solomon Sans';
+    src: url("Solomon Sans/Solomon Sans Black Italic.2dcde029b082.otf");
+    font-weight: bold;
+    font-style: italic;
+}

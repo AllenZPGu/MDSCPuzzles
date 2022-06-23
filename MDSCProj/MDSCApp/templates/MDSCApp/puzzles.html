@@ -1,0 +1,83 @@
+{% extends 'MDSCApp/base.html' %}
+
+{% block title %}Instructions{% endblock %}
+
+{% block content %}
+<div class="container">
+  <center><h2>Puzzles</h2>
+
+  <table style="width:80%;">
+    <tbody style="width:100%">
+      <tr>
+        <td style="width: 50%;">
+          {% if puzzleState == 0 %}
+            <center><div class="puzzle-btn" id="puzzle-btn1">
+              <h4>Puzzle 1 TBA</h4>
+            </div></center>
+          {% else %}
+            <center><div class="puzzle-btn" id="puzzle-btn1">
+              <h4>Puzzle 1 NAME</h4>
+              <a href="puzzle1/"><span class="hyperspan"></span></a>
+            </div></center>
+          {% endif %}
+        </td>
+        <td style="width: 50%;">
+          {% if puzzleState >= 1%}
+            {% if puzzleState == 1 %}
+              <center><div class="puzzle-btn" id="puzzle-btn2">  
+                <h4>Puzzle 2 TBA</h4>
+              </div></center>
+            {% else %}
+              <center><div class="puzzle-btn" id="puzzle-btn2">  
+                <h4>Wardle</h4>
+                <a href="puzzle2/"><span class="hyperspan"></span></a> 
+              </div></center>
+            {% endif %}
+          {% endif %}
+        </td>
+      </tr>
+
+      <tr>
+        {% if puzzleState >= 2 %}  
+          <td style="width: 50%;">
+            {% if puzzleState == 2 %}
+              <center><div class="puzzle-btn" id="puzzle-btn3">  
+                <h4>Puzzle 3 TBA</h4>
+              </div></center>
+            {% else %}
+              <center><div class="puzzle-btn" id="puzzle-btn3">  
+                <h4>Puzzle 3 NAME</h4>
+                <a href="puzzle3/"><span class="hyperspan"></span></a> 
+              </div></center>
+            {% endif %}
+          </td>
+          <td style="width: 50%;">
+            {% if puzzleState >= 3 %}
+              {% if puzzleState == 3 %}
+                <center><div class="puzzle-btn" id="puzzle-btn4">  
+                  <h4>Puzzle 4 TBA</h4>
+                </div></center>
+              {% else %}
+                <center><div class="puzzle-btn" id="puzzle-btn4">  
+                  <h4>Puzzle 4 NAME</h4>
+                  <a href="puzzle4/"><span class="hyperspan"></span></a> 
+                </div></center>
+              {% endif %}
+            {% endif %}
+          </td>
+        {% else %}
+          <td style="width: 50%;">
+            <center><div class="puzzle-btn" id="puzzle-btn-ghost">
+            </div></center>
+          </td>
+        {% endif %}
+      </tr>
+    </tbody>
+  </table>
+
+
+  </center>
+</div>
+
+
+{% endblock %}

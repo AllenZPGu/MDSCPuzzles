@@ -1,0 +1,47 @@
+{% extends 'MDSCApp/semantic_base.html' %}
+
+{% block body %}
+<div class="mdsc-grad">
+  <div class="container outer-container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a href="/"><img src="/static/MDSCApp/img/Logo_text_puzzle2.png" alt="MDSC Logo" style="width:300px;max-width:100%;padding-left:20px;padding-top:10px"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 nav-justified">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/instructions/">Instructions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/puzzles/">Puzzles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/leaderboard/">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/credits/" tabindex="-1">Credits</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="vertical-stripe">
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <footer class="footer" id="footer">
+      University of Melbourne MD Student Conference
+      <br>
+      Copyright © 2022 Allen Gu
+  </div>
+</div>
+{% endblock %}
