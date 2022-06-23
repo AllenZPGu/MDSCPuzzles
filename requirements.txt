@@ -2,3 +2,6 @@ django
 django-crispy-forms
 django-extensions
 whitenoise
+gunicorn
+psycopg2-binary
+dj-database-url
