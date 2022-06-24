@@ -88,20 +88,26 @@ if DEVMODE:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
+            "NAME": BASE_DIR / "dbDEV.sqlite3",
         }
     }
 else:
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": os.getenv("DBNAME"),
-            "USER": os.getenv("DBUSER"),
-            "PASSWORD": os.getenv("DBPASS"),
-            "HOST": os.getenv('LOCALHOST'),
-            "PORT": ''
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "dbPROD.sqlite3",
         }
     }
+    # DATABASES = {
+    #     "default": {
+    #         "ENGINE": "django.db.backends.postgresql_psycopg2",
+    #         "NAME": os.getenv("DBNAME"),
+    #         "USER": os.getenv("DBUSER"),
+    #         "PASSWORD": os.getenv("DBPASS"),
+    #         "HOST": os.getenv('LOCALHOST'),
+    #         "PORT": ''
+    #     }
+    # }
 
 
 # Password validation
