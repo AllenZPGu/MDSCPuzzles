@@ -1,6 +1,4 @@
 import json
-from asgiref.sync import async_to_sync
-from channels.layers import get_channel_layer
 from django import forms
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
@@ -21,7 +19,6 @@ from django.views.decorators.http import last_modified
 # from .forms import *
 from .models import *
 import os
-import yaml
 # from .utils import *
 # import requests
 # import csv

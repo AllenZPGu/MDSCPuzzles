@@ -82,18 +82,23 @@ WSGI_APPLICATION = 'MDSCProj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-if DEVELOPMENT_MODE is True:
+if DEVELOPMENT_MODE:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
+else:
     DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": os.getenv("DBNAME"),
+            "USER": os.getenv("DBUSER"),
+            "PASSWORD": os.getenv("DBPASS"),
+            "HOST": os.getenv('LOCALHOST'),
+            "PORT": ''
+        }
     }
 
 
@@ -136,6 +141,6 @@ USE_TZ = True
 # whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = []
 

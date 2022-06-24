@@ -16,5 +16,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'MDSCProj.settings')
 application = get_wsgi_application()
 
 # application = MDSCApp()
-application = WhiteNoise(application, root="../MDSCProj/MDSCApp/static/")
+application = WhiteNoise(application, root="MDSCProj/MDSCApp/static/")
 # application.add_files("/path/to/more/static/files", prefix="more-files/")
