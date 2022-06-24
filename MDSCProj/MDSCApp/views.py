@@ -14,6 +14,7 @@ from django.utils import timezone
 from django.utils.html import strip_tags
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import last_modified
+from django.contrib.auth.models import User
 # from datetime import datetime
 
 # from .forms import *
@@ -27,7 +28,7 @@ import datetime
 
 # Create your views here.
 def index(request):
-    return render(request, 'MDSCApp/index.html', {'DEVMODE':settings.DEVMODE, 'DEBUG':settings.DEBUG})
+    return render(request, 'MDSCApp/index.html', {'DEVMODE':settings.DEVMODE, 'DEBUG':settings.DEBUG, 'User':User.objects.all()})
 
 def instructions(request):
     return render(request, 'MDSCApp/instructions.html')
