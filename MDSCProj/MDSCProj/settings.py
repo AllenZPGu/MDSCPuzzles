@@ -31,6 +31,8 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 DEVMODE = os.getenv("DEVMODE", "False") == "True"
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
 ALLOWED_HOSTS = ['*']
 
 
