@@ -132,3 +132,5 @@ dmypy.json
 # .bat
 mdscenv/
 staticfiles/
+*.pyc
+*.sqlite3
