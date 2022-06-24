@@ -33,4 +33,4 @@ def instructions(request):
     return render(request, 'MDSCApp/instructions.html')
 
 def puzzles(request):
-    return render(request, 'MDSCApp/puzzles.html', {'puzzleState':3})
+    return render(request, 'MDSCApp/puzzles.html', {'puzzleState':1})

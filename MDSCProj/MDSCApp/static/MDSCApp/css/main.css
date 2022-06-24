@@ -111,6 +111,19 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
 }
 
+.puzzle-info1{
+  text-align: right;
+  font-weight: bold;
+  padding-right: 0.5em;
+  width: 60%;
+}
+
+.puzzle-info2{
+  text-align: left;
+  padding-left: 0.5em;
+  width: 40%;
+}
+
 .hyperspan {
   position:absolute;
   width:100%;
@@ -118,3 +131,4 @@ h1, h2, h3, h4, h5, h6 {
   left:0;
   top:0;
 }
+
