@@ -28,7 +28,7 @@ import datetime
 
 # Create your views here.
 def index(request):
-    return render(request, 'MDSCApp/index.html', {'DEVMODE':settings.DEVMODE, 'DEBUG':settings.DEBUG, 'User':User.objects.all()})
+    return render(request, 'MDSCApp/index.html', {'DEVMODE':settings.DEVMODE, 'DEBUG':settings.DEBUG})
 
 def instructions(request):
     return render(request, 'MDSCApp/instructions.html')
