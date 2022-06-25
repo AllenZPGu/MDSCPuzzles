@@ -52,7 +52,7 @@ def puzzles(request):
     for puz in range(1,5):
         x = Guess.objects.filter(puzzle=puz)
         puzInfo.append({'id': puz, 'title': getTitle(puz), 'solves': len(x.filter(correct=True)), 'guesses': len(x)})
-    return render(request, 'MDSCApp/puzzles.html', {'puzzleState':calcPuzzleState(), 'puzInfo':puzInfo})
+    return render(request, 'MDSCApp/puzzles.html', {'puzInfo':puzInfo})
 
 def solve(request, puzzleId):
     try:
