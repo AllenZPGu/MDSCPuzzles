@@ -43,9 +43,21 @@ def checkGuessCorrect(puzzleId, x):
     except:
         return False
 
-def getTitles(puzzleId):
+def getTitle(puzzleId):
     titles = {1:'Puzzle 1 Title',
               2:'Wardle',
               3:'Puzzle 3 Title',
               4:'Puzzle 4 TItle'}
     return titles[puzzleId]
+
+def capitaliseAfterSpace(x):
+    if len(x) == 0:
+        return ''
+    x = x.lower()
+    y = x[0].upper()
+    for i in range(1, len(x)):
+        if x[i-1] not in string.ascii_uppercase+string.ascii_lowercase:
+            y += x[i].upper()
+        else:
+            y += x[i]
+    return y

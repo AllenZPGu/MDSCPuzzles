@@ -1,4 +1,4 @@
-@import "fonts.css";
+@import "fonts.css"; 
 
 .mdsc-grad {
   /*height: 200px;*/
@@ -9,15 +9,23 @@
   font-family: 'Noto Sans';
   font-weight: normal;
   font-style: normal;
-  font-size: 13pt;
+  font-size:0.8rem;
 }
 
+@media (min-width: 768px) {
+  .mdsc-grad {font-size:0.98rem;}
+}
+ 
+@media (min-width: 992px) {
+  .mdsc-grad {font-size:1rem;}
+}
+ 
 .outer-container{
 
 }
 
 html, body {
-    min-height: 100%;
+    height: max(100%, 100vh);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 #footer {
   width: 100%;
   text-align: center;
-  font-size: 8pt ;
+  font-size: 0.8rem ;
   bottom: 0;
   padding: 20pt;
 }
@@ -67,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-light .navbar-nav .nav-link{
   color: rgb(0,0,0,1);
   font-weight: bold;
-  font-size: 15pt;
+  font-size: 1.3rem;
 }
 
 .home-a {
@@ -86,23 +94,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   margin: 20px;
   width: 75%;
-  height: 150px;
   position: relative;
 }
 
 #puzzle-btn1 {
-  background-color: #4e9cde;
-  border-color: #13446e;
-}
-
-#puzzle-btn2 {
   background-color: #a573d9;
   border-color: #502280
 }
 
-#puzzle-btn3 {
+#puzzle-btn2 {
   background-color: #6ee0bc;
   border-color: #235c4a;
+}
+
+#puzzle-btn3 {
+  background-color: #4e9cde;
+  border-color: #13446e;
 }
 
 #puzzle-btn4 {
@@ -139,4 +146,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .alert {
   text-align: center;
+}
+
+
+/*Leaderboard styles*/
+.outcome-time {
+  font-size: 0.6rem;
+  color: grey;
+}
+
+.row {
+  /*word-wrap: break-word;*/
 }

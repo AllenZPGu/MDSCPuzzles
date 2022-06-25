@@ -43,3 +43,17 @@ var x = setInterval(function() {
     p4c.innerHTML = "Released NOW<br>Please refresh";
   }}
 }, 200);
+
+var changeHeight = function(){
+  var maxH = 0;
+  for (i = 1; i <= 4; i++) {
+    var x = getComputedStyle(document.getElementById(`puzzle-btn${i}`)).height;
+    var y = parseFloat(x.substring(0, x.length-2));
+    if (y > maxH) {maxH = y;}
+  }
+  for (i = 1; i <= 4; i++) {
+    document.getElementById(`puzzle-btn${i}`).style.height = maxH+'px';
+  }
+}
+
+changeHeight();

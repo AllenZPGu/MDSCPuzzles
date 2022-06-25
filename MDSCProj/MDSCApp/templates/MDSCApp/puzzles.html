@@ -1,122 +1,58 @@
 {% extends 'MDSCApp/base.html' %}
+{% load static %}
 
-{% block title %}Instructions{% endblock %}
+{% block title %}Puzzles List{% endblock %}
 
 {% block content %}
+
 <div class="container">
-  <center><h2>Puzzles List (State: {{puzzleState}})</h2>
-
-  <table style="width:80%;">
-    <tbody style="width:100%">
-      <tr>
-        <td style="width: 50%;">
-          {% if puzzleState == 0 %}
-            <center><div class="puzzle-btn" id="puzzle-btn1">
-              <h4 style="font-style: italic;">Puzzle 1</h4>
-              <p id="puzzle-btn1-countdown"></p>
-            </div></center>
-          {% else %}
-            <center><div class="puzzle-btn" id="puzzle-btn1">
-              <h4>Puzzle 1 NAME</h4>
-              <table style="width:80%;">
-                <tbody style="width:100%">
-                  <tr>
-                    <td class="puzzle-info1">Solves:</td>
-                    <td class="puzzle-info2">1</td>
-                  </tr>
-                  <tr>
-                    <td class="puzzle-info1">Guesses:</td>
-                    <td class="puzzle-info2">2</td>
-                  </tr>
-                </tbody>
-              </table>
-              <a href="/puzzle/1/"><span class="hyperspan"></span></a>
-            </div></center>
-          {% endif %}
-        </td>
-        <td style="width: 50%;">
-          {% if puzzleState <= 1 %}
-            <center><div class="puzzle-btn" id="puzzle-btn2">  
-              <h4 style="font-style: italic;">Puzzle 2</h4>
-              <p id="puzzle-btn2-countdown"></p>
-            </div></center>
-          {% else %}
-            <center><div class="puzzle-btn" id="puzzle-btn2">
-              <h4>Puzzle 2 NAME</h4>
-              <table style="width:80%;">
-                <tbody style="width:100%">
-                  <tr>
-                    <td class="puzzle-info1">Solves:</td>
-                    <td class="puzzle-info2">1</td>
-                  </tr>
-                  <tr>
-                    <td class="puzzle-info1">Guesses:</td>
-                    <td class="puzzle-info2">2</td>
-                  </tr>
-                </tbody>
-              </table>
-              <a href="/puzzle/2/"><span class="hyperspan"></span></a>
-            </div></center>
-          {% endif %}
-        </td>
-      </tr>
-
-      <tr>
-        <td style="width: 50%;">
-          {% if puzzleState <= 2 %}
-            <center><div class="puzzle-btn" id="puzzle-btn3">  
-              <h4 style="font-style: italic;">Puzzle 3</h4>
-              <p id="puzzle-btn3-countdown"></p>
-            </div></center>
-          {% else %}
-            <center><div class="puzzle-btn" id="puzzle-btn3">
-              <h4>Puzzle 3 NAME</h4>
-              <table style="width:80%;">
-                <tbody style="width:100%">
-                  <tr>
-                    <td class="puzzle-info1">Solves:</td>
-                    <td class="puzzle-info2">1</td>
-                  </tr>
-                  <tr>
-                    <td class="puzzle-info1">Guesses:</td>
-                    <td class="puzzle-info2">2</td>
-                  </tr>
-                </tbody>
-              </table>
-              <a href="/puzzle/3/"><span class="hyperspan"></span></a>
-            </div></center>
-          {% endif %}
-        </td>
-        <td style="width: 50%;">
-          {% if puzzleState <= 3 %}
-            <center><div class="puzzle-btn" id="puzzle-btn4">  
-              <h4 style="font-style: italic;">Puzzle 4</h4>
-              <p id="puzzle-btn4-countdown"></p>
-            </div></center>
-          {% else %}
-            <center><div class="puzzle-btn" id="puzzle-btn4">
-              <h4>Puzzle 4 NAME</h4>
-              <table style="width:80%;">
-                <tbody style="width:100%">
-                  <tr>
-                    <td class="puzzle-info1">Solves:</td>
-                    <td class="puzzle-info2">1</td>
-                  </tr>
-                  <tr>
-                    <td class="puzzle-info1">Guesses:</td>
-                    <td class="puzzle-info2">2</td>
-                  </tr>
-                </tbody>
-              </table>
-              <a href="/puzzle/4/"><span class="hyperspan"></span></a>
-            </div></center>
-          {% endif %}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <center>
+    <br>
+    <h2>Puzzles List (State: {{puzzleState}})</h2>
   </center>
+
+<div class="container">
+  {% for puz in puzInfo %}
+    {% if not puz.id|divisibleby:2 %}
+      <div class="row">
+    {% endif %}
+      <div class="col-sm">
+        <center>
+          <div class="puzzle-btn" id="puzzle-btn{{puz.id}}">
+            {% if puzzleState < puz.id %}
+
+                <h4 style="font-style: italic;">Puzzle {{puz.id}}</h4>
+                <p id="puzzle-btn{{puz.id}}-countdown"></p>
+
+            {% else %}
+
+                <h4>Puzzle {{puz.id}}: {{puz.title}}</h4>
+                <table style="width:80%;">
+                  <tbody style="width:100%">
+                    <tr>
+                      <td class="puzzle-info1">Solves:</td>
+                      <td class="puzzle-info2">{{puz.solves}}</td>
+                    </tr>
+                    <tr>
+                      <td class="puzzle-info1">Guesses:</td>
+                      <td class="puzzle-info2">{{puz.guesses}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="/puzzle/{{puz.id}}/"><span class="hyperspan"></span></a>
+    
+            {% endif %}
+          </div>
+        </center>
+      </div>
+
+    {% if puz.id|divisibleby:2 %}
+      </div>
+    {% endif %}
+  {% endfor %}
 </div>
+
+<script src="{% static 'MDSCApp/js/puzzles.js' %}" type="text/javascript"></script>
 
 
 {% endblock %}

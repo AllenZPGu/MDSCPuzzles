@@ -8,37 +8,71 @@
 <div class="container inner-container">
   <center>
     <h2>Leaderboard</h2>
-      <table style="width:80%">
-        <thead>
-          <tr></tr>
-        </thead>
-        <tbody style="width:100%">
-
-          {% for x in dictList %}
-            <tr>
-              <td style="width:40%;">{{x.name}}</td>
-              {% for outcome in x.outcomes %}
-                <td style="width:15%;">{{outcome.0}} {{outcome.1}}</td>
-              {% endfor %}
-
-
-            </tr>
-          {% endfor %}
-
-        </tbody>
-
-
-
-
-
-      </table>
-
-
-
-
-
-
+    <p>Solved puzzles earn a tick (✔️), while puzzles solved within 6 hours of release are marked with ⚡.</p>
   </center>
+  
+  <br>
+  <div class="container" style="padding: 0;">
+    <div class="row" style="padding-bottom: 30px; font-weight: bold;">
+      <div class="col-sm-7">
+        <div class="container" style="padding-left: 0px;">
+          <div class="row">
+            <div class="col-6">
+              Name
+            </div>
+            <div class="col-2">
+              Score
+            </div>
+            <div class="col-2">
+              # Solved
+            </div>
+            <div class="col-2">
+              Avg. solve time
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5"><div class="container" style="padding: 0px;"><div class="row">
+        <div class="col-3">Puzzle 1</div>
+        <div class="col-3">Puzzle 2</div>
+        <div class="col-3">Puzzle 3</div>
+        <div class="col-3">Puzzle 4</div>
+      </div></div></div>
+    </div>
+    {% for x in dictList %}
+      <div class="row" style="padding-bottom: 20px;">
+        <div class="col-sm-7">
+          <div class="container" style="padding-left: 0px;">
+            <div class="row">
+              <div class="col-6">
+                {{x.name}}
+              </div>
+              <div class="col-2">
+                {{x.points}}
+              </div>
+              <div class="col-2">
+                {{x.puzzs}}
+              </div>
+              <div class="col-2">
+                {{x.avgSolveTime}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5"><div class="container" style="padding: 0px;"><div class="row">
+          {% for outcome in x.outcomes %}
+            <div class="col-3">
+              <div>
+                {% if outcome.0 == 0 %}-{% elif outcome.0 == 1 %}✔️{% elif outcome.0 == 2 %}✔️⚡{% endif %}
+                <br>
+                <div class="outcome-time">{% if outcome.0 == 0 %}-{% else %}{{outcome.1}}{% endif %}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div></div></div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

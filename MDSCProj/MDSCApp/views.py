@@ -46,7 +46,11 @@ def puzzle(request, puzzleId):
     return render(request, f'MDSCApp/puzzlePages/puzzle{puzzleId}.html')
 
 def puzzles(request):
-    return render(request, 'MDSCApp/puzzles.html', {'puzzleState':calcPuzzleState()})
+    puzInfo = []
+    for puz in range(1,5):
+        x = Guess.objects.filter(puzzle=puz)
+        puzInfo.append({'id': puz, 'title': getTitle(puz), 'solves': len(x.filter(correct=True)), 'guesses': len(x)})
+    return render(request, 'MDSCApp/puzzles.html', {'puzzleState':calcPuzzleState(), 'puzInfo':puzInfo})
 
 def solve(request, puzzleId):
     try:
@@ -73,7 +77,7 @@ def solve(request, puzzleId):
             newGuess.save()
 
             if newGuess.correct:
-                return render(request, f'MDSCApp/puzzlePages/solved.html', {'puzzleId':puzzleId, 'title':getTitles(puzzleId), 'guess':newGuess.guess, 'points':newGuess.points})
+                return render(request, f'MDSCApp/puzzlePages/solved.html', {'puzzleId':puzzleId, 'title':getTitle(puzzleId), 'guess':newGuess.guess, 'points':newGuess.points*500})
             else:
                 guessForm = GuessForm(initial={'studentId':newGuess.studentId, 'name':newGuess.name})
                 return render(request, f'MDSCApp/puzzlePages/solve{puzzleId}.html', {'guessForm':guessForm, 'state':'wrong', 'guess':newGuess.guess})
@@ -88,12 +92,22 @@ def leaderboard(request):
     for stuId in ids:
         stuGuesses = allGuesses.filter(studentId=stuId)
         x = {'studentId':stuId,
-             'name':stuGuesses[0].name,
+             'name':capitaliseAfterSpace(stuGuesses[0].name),
              'outcomes': [(0,'') for i in range(4)],
-             'points': 0}
+             'points': 0,
+             'puzzs': 0,
+             'avgSolveTime': -1,
+             'totSolveTime': 0}
         for stuGuess in stuGuesses:
-            x['outcomes'][stuGuess.puzzle] = (stuGuess.points, secToHMS(calcSolveTime(stuGuess.puzzle, stuGuess.submitTime)))
+            x['outcomes'][stuGuess.puzzle-1] = (stuGuess.points, secToHMS(calcSolveTime(stuGuess.puzzle, stuGuess.submitTime)))
+            x['puzzs'] += 1
+            x['totSolveTime'] += calcSolveTime(stuGuess.puzzle, stuGuess.submitTime)
+        try:
+            x['avgSolveTime'] = secToHMS(x['totSolveTime'] // x['puzzs'])
+        except:
+            pass
         x['points'] = 500 * sum(x['outcomes'][i][0] for i in range(4))
         dictList.append(x)
-    dictList = sorted(dictList, key=lambda y:-y['points']-sum([i[0]>0 for i in y['outcomes']]))
+    dictList = sorted(dictList, key=lambda y: 1000000 * y['points'] + 1000000 *y['puzzs'] - y['totSolveTime'])
+    dictList.reverse()
     return render(request, f'MDSCApp/leaderboard.html', {'dictList':dictList})
