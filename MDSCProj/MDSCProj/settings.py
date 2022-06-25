@@ -14,11 +14,13 @@ from pathlib import Path
 import os
 import sys
 from django.core.management.utils import get_random_secret_key
+import datetime
+import pytz
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 24, 21, 0))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -43,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'django_extensions',
     'MDSCApp',
 ]
 
@@ -139,6 +143,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

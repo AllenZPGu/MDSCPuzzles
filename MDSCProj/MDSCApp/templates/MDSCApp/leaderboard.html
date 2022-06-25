@@ -1,0 +1,44 @@
+{% extends 'MDSCApp/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+<div class="container inner-container">
+  <center>
+    <h2>Leaderboard</h2>
+      <table style="width:80%">
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody style="width:100%">
+
+          {% for x in dictList %}
+            <tr>
+              <td style="width:40%;">{{x.name}}</td>
+              {% for outcome in x.outcomes %}
+                <td style="width:15%;">{{outcome.0}} {{outcome.1}}</td>
+              {% endfor %}
+
+
+            </tr>
+          {% endfor %}
+
+        </tbody>
+
+
+
+
+
+      </table>
+
+
+
+
+
+
+  </center>
+</div>
+
+{% endblock %}

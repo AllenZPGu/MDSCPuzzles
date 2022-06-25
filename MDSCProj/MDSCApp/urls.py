@@ -10,5 +10,8 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('instructions/', views.instructions),
+    path('puzzle/<int:puzzleId>/', views.puzzle),
     path('puzzles/', views.puzzles),
+    path('solve/<int:puzzleId>/', views.solve),
+    path('leaderboard/', views.leaderboard),
 ]

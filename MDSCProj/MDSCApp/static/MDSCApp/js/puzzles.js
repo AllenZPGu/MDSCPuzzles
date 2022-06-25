@@ -42,4 +42,4 @@ var x = setInterval(function() {
   } else {
     p4c.innerHTML = "Released NOW<br>Please refresh";
   }}
-}, 1000);
+}, 200);

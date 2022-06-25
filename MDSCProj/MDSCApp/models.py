@@ -9,6 +9,7 @@ class Guess(models.Model):
     guess = models.CharField(max_length=100, null=True)
     correct = models.BooleanField(default=False)
     submitTime = models.DateTimeField(null=True)
+    points = models.IntegerField(default=0, null=True)
     
     class Meta:
         db_table = 'Guess'
