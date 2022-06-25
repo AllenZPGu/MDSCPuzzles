@@ -2,14 +2,13 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-{% block title %}Puzzle 1: Check{% endblock %}
+{% block title %}Puzzle {{puzInfo.puzId}}: Submit{% endblock %}
 
 {% block content %}
-<div class="solve-container inner-container">
+<div class="container inner-container">
   <center>
     <h2>Solution Checker</h2>
-    <h4>Puzzle 1</h4>
-    <h4>Puzzle 1 Title</h4>
+    <a href='/puzzle/{{puzInfo.puzId}}/'><h4>Puzzle {{puzInfo.puzId}}: {{puzInfo.title}}</h4></a>
   </center>
 
   {% if state == "wrong" %}
@@ -32,7 +31,7 @@
         {% csrf_token %}
         {{ guessForm|crispy }}  
         <br>
-        <button type="submit" class="btn btn-success btn-block">Create poll</button>
+        <button type="submit" class="btn btn-success btn-block">Submit guess</button>
       </div>
     </form>
   </div>

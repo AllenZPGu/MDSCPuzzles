@@ -10,6 +10,7 @@
   font-weight: normal;
   font-style: normal;
   font-size:0.8rem;
+  touch-action: manipulation;
 }
 
 @media (min-width: 768px) {
@@ -25,7 +26,7 @@
 }
 
 html, body {
-    height: max(100%, 100vh);
+  height: max(100%, 100vh);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,11 +47,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
 }
 
-.solve-container {
+/*.solve-container {
   max-width: 60%;
   margin: auto;
 }
-
+*/
 #footer {
   width: 100%;
   text-align: center;
@@ -95,6 +96,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 20px;
   width: 75%;
   position: relative;
+  min-height: 150px;
 }
 
 #puzzle-btn1 {
@@ -157,4 +159,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .row {
   /*word-wrap: break-word;*/
+}
+
+.flavourtext {
+  font-style: italic;
+}
+
+.ward-card {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: 1px solid rgb(0,0,0,1);
+  border-radius: 0.5rem;
 }

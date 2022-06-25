@@ -5,6 +5,8 @@ from django.conf import settings
 tz = pytz.timezone('Australia/Melbourne')
 
 def calcPuzzleState():
+    if datetime.datetime.now(tz) > settings.SOLUTION_TIME:
+        return 100
     x = (datetime.datetime.now(tz) - settings.INDEX_TIME).days
     if x < 0:
         return 0
@@ -34,7 +36,7 @@ def stripGuess(x):
 
 def checkGuessCorrect(puzzleId, x):
     answers = {1:'TESTANSWERA',
-               2:'TESTANSWERB',
+               2:'TOXIC',
                3:'TESTANSWERC',
                4:'TESTANSWERD'}
     try:

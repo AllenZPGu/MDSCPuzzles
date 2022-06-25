@@ -43,7 +43,9 @@ def puzzle(request, puzzleId):
             raise Http404()
     except:
         raise Http404()
-    return render(request, f'MDSCApp/puzzlePages/puzzle{puzzleId}.html')
+
+    puzInfo = {'puzId':puzzleId, 'title':getTitle(puzzleId)}
+    return render(request, f'MDSCApp/puzzlePages/puzzle{puzzleId}.html', {'puzInfo':puzInfo})
 
 def puzzles(request):
     puzInfo = []
@@ -59,12 +61,14 @@ def solve(request, puzzleId):
     except:
         raise Http404()
 
+    puzInfo = {'puzId':puzzleId, 'title':getTitle(puzzleId)}
+
     if request.method == 'POST':
         guessForm = GuessForm(request.POST)
         if guessForm.is_valid():
-            if Guess.objects.filter(studentId=guessForm.cleaned_data.get('studentId')).filter(correct=True):
+            if Guess.objects.filter(studentId=guessForm.cleaned_data.get('studentId'), puzzle=puzzleId, correct=True):
                 guessForm = GuessForm()
-                return render(request, f'MDSCApp/puzzlePages/solve{puzzleId}.html', {'guessForm':guessForm, 'state':'duplicate'})
+                return render(request, f'MDSCApp/puzzlePages/solve.html', {'guessForm':guessForm, 'state':'duplicate', 'puzInfo':puzInfo})
             newGuess = Guess()
             newGuess.puzzle = puzzleId
             newGuess.studentId = guessForm.cleaned_data.get('studentId')
@@ -77,13 +81,14 @@ def solve(request, puzzleId):
             newGuess.save()
 
             if newGuess.correct:
-                return render(request, f'MDSCApp/puzzlePages/solved.html', {'puzzleId':puzzleId, 'title':getTitle(puzzleId), 'guess':newGuess.guess, 'points':newGuess.points*500})
+                return render(request, f'MDSCApp/puzzlePages/solved.html', {'puzInfo':puzInfo, 'guess':newGuess.guess, 'points':newGuess.points*500})
             else:
                 guessForm = GuessForm(initial={'studentId':newGuess.studentId, 'name':newGuess.name})
-                return render(request, f'MDSCApp/puzzlePages/solve{puzzleId}.html', {'guessForm':guessForm, 'state':'wrong', 'guess':newGuess.guess})
+                return render(request, f'MDSCApp/puzzlePages/solve.html', {'guessForm':guessForm, 'state':'wrong', 'guess':newGuess.guess, 'puzInfo':puzInfo})
     else:
         guessForm = GuessForm()
-        return render(request, f'MDSCApp/puzzlePages/solve{puzzleId}.html', {'guessForm':guessForm, 'state':'new'})
+    
+    return render(request, f'MDSCApp/puzzlePages/solve.html', {'guessForm':guessForm, 'state':'new', 'puzInfo':puzInfo})
 
 def leaderboard(request):
     allGuesses = Guess.objects.exclude(points=0)
@@ -111,3 +116,14 @@ def leaderboard(request):
     dictList = sorted(dictList, key=lambda y: 1000000 * y['points'] + 1000000 *y['puzzs'] - y['totSolveTime'])
     dictList.reverse()
     return render(request, f'MDSCApp/leaderboard.html', {'dictList':dictList})
+
+def wardle(request, wardleId):
+    try:
+        if calcPuzzleState() <= 0 or wardleId not in ("1","2","3","4","5","infinity"):
+            raise Http404()
+    except:
+        raise Http404()
+    return render(request, f'MDSCApp/wardlePages/wardle{wardleId}.html')
+
+def credits(request):
+    return render(request, 'MDSCApp/credits.html')
