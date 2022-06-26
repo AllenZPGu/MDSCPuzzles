@@ -134,3 +134,4 @@ mdscenv/
 staticfiles/
 *.pyc
 *.sqlite3
+MDSCProj/dbDEV.sqlite3
