@@ -9,20 +9,20 @@
   <center>
     <h2>Solution Checker</h2>
     <a href='/puzzle/{{puzInfo.puzId}}/'><h4>Puzzle {{puzInfo.puzId}}: {{puzInfo.title}}</h4></a>
+    <p class="flavourtext">Note: please ensure you have read the <a href="/instructions/" target="_blank">instructions</a> before you submit any guesses.</p>
   </center>
 
+  <br>
   {% if state == "wrong" %}
-  <div class="alert alert-danger" role="alert">
-    <h5>Incorrect!</h5>
-    <p>Your guess of <b>{{guess}}</b> was incorrect. Try again below!</p>
-  </div>
-
+    <div class="alert alert-danger" role="alert">
+      <h5>Incorrect!</h5>
+      <p>Your guess of <b>{{guess}}</b> was incorrect. Try again below!</p>
+    </div>
   {% elif state == "duplicate" %}
-  <div class="alert alert-primary" role="alert">
-    <h5>Duplicate Student ID</h5>
-    <p>It seems like someone has already made a successful guess with this student ID. Please check you are entering the right student ID. Contact us if you think there is a mistake.</p>
-  </div>
-
+    <div class="alert alert-primary" role="alert">
+      <h5>Duplicate Student ID</h5>
+      <p>It seems like someone has already made a successful guess with this student ID. Please check you are entering the right student ID. Contact us if you think there is a mistake.</p>
+    </div>
   {% endif %}
 
   <div>
