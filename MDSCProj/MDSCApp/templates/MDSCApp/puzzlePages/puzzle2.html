@@ -9,13 +9,14 @@
 <div class="container inner-container">
   <center>
     <h4>Puzzle {{puzInfo.puzId}}</h4>
-    <h2>{{puzInfo.title}}</h2>
+    <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
     <a class="btn btn-success" href="/solve/2/">Submit a guess</a>
+    <br><br>
+    <p class="flavourtext">
+      After a gruelling ward round, you decide to have a break and play a few rounds of your favourite word game. Trouble is, there are so many to attempt.
+    </p>
   </center>
-  <br>
-  <p class="flavourtext">
-    After a gruelling ward round, you decide to have a break and play a few rounds of your favourite word game. Trouble is, there are so many to attempt. When will they end?
-  </p>
+  
 
   <div class="wardle-cards">
     {% for wardle in "123456" %}

@@ -45,7 +45,23 @@ def puzzle(request, puzzleId):
         raise Http404()
 
     puzInfo = {'puzId':puzzleId, 'title':getTitle(puzzleId)}
-    return render(request, f'MDSCApp/puzzlePages/puzzle{puzzleId}.html', {'puzInfo':puzInfo})
+    specificArgs = {}
+    if puzzleId == 1:
+        specificArgs['pplRange'] = range(1,18)
+
+    return render(request, f'MDSCApp/puzzlePages/puzzle{puzzleId}.html', {'puzInfo':puzInfo, 'specificArgs':specificArgs})
+
+def puzzlePDF(request, puzzleId):
+    try:
+        if puzzleId > calcPuzzleState() or puzzleId not in (1,3,4):
+            raise Http404()
+    except:
+        raise Http404()
+
+    try:
+        return FileResponse(open(os.path.join(settings.BASE_DIR, f'MDSCApp/pdf/Puzzle{puzzleId}.pdf'), 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404("PDF file not found!")
 
 def puzzles(request):
     puzInfo = []

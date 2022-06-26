@@ -11,6 +11,7 @@ urlpatterns = [
     path('', views.index),
     path('instructions/', views.instructions),
     path('puzzle/<int:puzzleId>/', views.puzzle),
+    path('pdf/<int:puzzleId>/', views.puzzlePDF),
     path('puzzles/', views.puzzles),
     path('solve/<int:puzzleId>/', views.solve),
     path('leaderboard/', views.leaderboard),

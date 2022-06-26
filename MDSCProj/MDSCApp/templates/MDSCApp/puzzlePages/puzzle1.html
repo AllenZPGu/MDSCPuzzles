@@ -1,14 +1,66 @@
 {% extends 'MDSCApp/base.html' %}
 {% load static %}
-{% block title %}Puzzle 1: {% endblock %}
+
+{% block title %}Puzzle 1: Shaping Medicine{% endblock %}
 
 {% block content %}
+
 <div class="container inner-container">
-  <center><h2>Puzzle 1: </h2></center>
-
+  <center>
+    <h4>Puzzle {{puzInfo.puzId}}</h4>
+    <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <a class="btn btn-primary" href="/pdf/1/" target="_blank" style="margin: 5px;">Download PDF version</a>
+    <a class="btn btn-success" href="/solve/1/" style="margin: 5px;">Submit a guess</a>
+    <br>
+    <br>
+    <p class="flavourtext">
+      Medical history is full of titans, but how do they square up against each other? Of course, with the good comes the bad, especially as we come full circle...
+    </p>
+  </center>
   
+  <link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/puzzle1.css'%}">
 
+  <div>
+    <center><img src="/static/MDSCApp/img/puzImg/1A.png" alt="Pic 1A" style="max-width:min(600px, 100%);padding-top:10px"></center>
+  </div>
+
+  <div>
+    <center><p style="">
+      <br><span class="puz-1-br"></span>... who appeared on the cover of the same magazine 36 years after...
+      <br><span class="puz-1-br"></span>... who completed her postdoctoral training under...
+      <br><span class="puz-1-br"></span>... who developed a surgical procedure to treat the condition named after...
+      <br><span class="puz-1-br"></span>... who founded the medical school attended by...
+      <br><span class="puz-1-br"></span>... who had a famous rivalry with...
+      <br><span class="puz-1-br"></span>... who hails from the same country as...
+      <br><span class="puz-1-br"></span>... who inherited the same honour a year after...
+      <br><span class="puz-1-br"></span>... who is a professor at the same institution as...
+      <br><span class="puz-1-br"></span>... who named a neonatal assessment score after...
+      <br><span class="puz-1-br"></span>... who won a prize named in part after...
+      <br><span class="puz-1-br"></span>... who won the same award 91 years before...
+      <br><span class="puz-1-br"></span>... who worked on the structure of the same biomolecule as...
+      <br><span class="puz-1-br"></span>... who wrote a biography about the life of...
+      <br><span class="puz-1-br"></span>... whose death could have been prevented by the vaccine developed by...
+      <br><span class="puz-1-br"></span>... whose name featured in a film released a year after the death of...
+      <br><span class="puz-1-br"></span>... whose name is on the workplace of...
+    </p></center>
+  </div>
+
+  <br>
+
+  <div class="container">
+
+    {% for i in specificArgs.pplRange %}
+      {% if i == 1 or i == 7 or i == 13 %}
+        <div class="row">
+      {% endif %}
+        <div class="col-sm-2">
+          <center><img src="/static/MDSCApp/img/puzImg/1B{{i}}.png" alt="Pic 1B{{i}}" class="puzzle-1-img"></center>
+        </div>
+      {% if i == 6 or i == 12 or i == 17 %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
-
 
 {% endblock %}

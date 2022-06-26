@@ -85,7 +85,7 @@ function submitGuess() {
   }, "")
 
   if (!dictionary.includes(guess)) {
-    showAlert("Not in word list")
+    showAlert("Not in ward list")
     shakeTiles(activeTiles)
     return
   }

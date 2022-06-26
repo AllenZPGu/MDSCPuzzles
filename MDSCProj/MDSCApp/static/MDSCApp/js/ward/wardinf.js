@@ -1,4 +1,5 @@
 const dictionary = ['toxic', 'heart', 'atopy', 'shiga', 'lasix', 'lumen']
+
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
@@ -84,7 +85,7 @@ function submitGuess() {
   }, "")
 
   if (!dictionary.includes(guess)) {
-    showAlert("Not in word list")
+    showAlert("Not in ward list")
     shakeTiles(activeTiles)
     return
   }

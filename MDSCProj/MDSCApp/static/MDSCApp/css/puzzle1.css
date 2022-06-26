@@ -1,0 +1,12 @@
+.puzzle-1-img {
+	max-width: 100%;
+	margin-bottom: 20px;
+	border: solid;
+	border-color: black;
+	border-width: 2px;
+}
+
+.puz-1-br {
+	display: block;
+    margin-bottom: 5px;
+}
