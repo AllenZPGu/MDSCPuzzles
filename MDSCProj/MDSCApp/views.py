@@ -140,7 +140,9 @@ def announcements(request):
     x = Announcement.objects.all()
     y = []
     for i in x:
-        a = i.msgTime.astimezone(pytz.timezone("Australia/Melbourne"))
+        a = i.msgTime.astimezone(tz)
+        if a > datetime.datetime.now(tz):
+            continue
         y.append({'msgTime': f'{a.strftime("%a")} {a.strftime("%d/%m/%Y %I:%M%p").lower()}',
         'msg': i.msg})
     y = sorted(y, key=lambda z:z['msgTime'])
