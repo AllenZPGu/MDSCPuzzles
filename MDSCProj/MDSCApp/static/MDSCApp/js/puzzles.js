@@ -13,8 +13,11 @@ var x = setInterval(function() {
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  if (hours < 0) {hours = ((hours % 24) + 24) % 24;}
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  if (minutes < 0) {minutes = ((minutes % 60) + 60) % 60;}
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  if (seconds < 0) {seconds = ((seconds % 60) + 60) % 60;}
 
   var p1c = document.getElementById("puzzle-btn1-countdown");
   var p2c = document.getElementById("puzzle-btn2-countdown");

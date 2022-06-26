@@ -92,7 +92,7 @@ if DEVMODE:
             "NAME": BASE_DIR / "dbDEV.sqlite3",
         }
     }
-    INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 23, 9, 0))
+    INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 25, 9, 0))
 else:
     DATABASES = {
         "default": {
