@@ -8,13 +8,12 @@
 <div class="solve-container inner-container">
   <center>
     <h2>Solution Checker</h2>
-    <h4>Puzzle {{puzInfo.puzId}}</h4>
-    <h4>{{puzInfo.title}}</h4>
+    <h4>Puzzle {{puzInfo.puzId}}: {{puzInfo.title}}</h4>
   </center>
 
   <div class="alert alert-success" role="alert">
     <h5>Correct!</h5>
-    <p>Your guess of <b>{{guess}}</b> was correct, earning you <b>{{points}} points</b>!</p>
+    <p>Your guess of <b>{{guess}}</b> was a correct solution, earning you <b>{{points}} points</b>!</p>
     <p><a href='/leaderboard/'>Click here</a> to view your place on the leaderboard.</p>
   </div>
 

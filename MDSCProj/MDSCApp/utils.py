@@ -17,7 +17,7 @@ def calcSolveTime(puzzleId, guessTime):
     return (x.days - puzzleId + 1)*86400 + x.seconds
 
 def calcPuzzleScore(puzzleId, guessTime):
-    hours = 6
+    hours = 9
     if calcSolveTime(puzzleId, guessTime) < hours * 3600:
         return 2
     return 1
@@ -35,18 +35,18 @@ def stripGuess(x):
         return ''
 
 def checkGuessCorrect(puzzleId, x):
-    answers = {1:'TESTANSWERA',
-               2:'TOXIC',
-               3:'TESTANSWERC',
-               4:'TESTANSWERD'}
+    answers = {1:('ELIZABETHHOLMES', 'HOLMES'),
+               2:('TOXIC'),
+               3:('TESTANSWERC'),
+               4:('HOMESICKNESS')}
     try:
-        z = answers[puzzleId] == stripGuess(x)
+        z = stripGuess(x) in answers[puzzleId]
         return z
     except:
         return False
 
 def getTitle(puzzleId):
-    titles = {1:'Puzzle 1 Title',
+    titles = {1:'Shaping Medicine',
               2:'Wardle',
               3:'Puzzle 3 Title',
               4:'Puzzle 4 TItle'}

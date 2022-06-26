@@ -20,7 +20,6 @@ import pytz
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 27, 9, 0))
 SOLUTION_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 7, 2, 0, 0))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -93,6 +92,7 @@ if DEVMODE:
             "NAME": BASE_DIR / "dbDEV.sqlite3",
         }
     }
+    INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 23, 9, 0))
 else:
     DATABASES = {
         "default": {
@@ -100,17 +100,7 @@ else:
             "NAME": BASE_DIR / "dbPROD.sqlite3",
         }
     }
-    # DATABASES = {
-    #     "default": {
-    #         "ENGINE": "django.db.backends.postgresql_psycopg2",
-    #         "NAME": os.getenv("DBNAME"),
-    #         "USER": os.getenv("DBUSER"),
-    #         "PASSWORD": os.getenv("DBPASS"),
-    #         "HOST": os.getenv('LOCALHOST'),
-    #         "PORT": ''
-    #     }
-    # }
-
+    INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 27, 9, 0))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
