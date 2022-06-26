@@ -90,7 +90,7 @@ def solve(request, puzzleId):
             newGuess.studentId = guessForm.cleaned_data.get('studentId')
             newGuess.name = guessForm.cleaned_data.get('name')
             newGuess.guess = stripGuess(guessForm.cleaned_data.get('guess'))
-            newGuess.correct = checkGuessCorrect(puzzleId, guessForm.cleaned_data.get('guess'))
+            newGuess.correct = checkGuessCorrect(puzzleId, newGuess.guess)
             newGuess.submitTime = datetime.datetime.now(tz)
             if newGuess.correct:
                 newGuess.points = calcPuzzleScore(puzzleId, newGuess.submitTime)
