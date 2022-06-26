@@ -137,7 +137,8 @@ def wardle(request, wardleId):
     return render(request, f'MDSCApp/wardlePages/wardle{wardleId}.html')
 
 def announcements(request):
-    x = Announcement.objects.all()
+    x = list(Announcement.objects.all())
+    x = sorted(x, key=lambda z:z.msgTime)
     y = []
     for i in x:
         a = i.msgTime.astimezone(tz)
@@ -145,6 +146,5 @@ def announcements(request):
             continue
         y.append({'msgTime': f'{a.strftime("%a")} {a.strftime("%d/%m/%Y %I:%M%p").lower()}',
         'msg': i.msg})
-    y = sorted(y, key=lambda z:z['msgTime'])
     y.reverse()
     return render(request, 'MDSCApp/announcements.html', {'announcements':y})
