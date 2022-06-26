@@ -1,0 +1,27 @@
+{% extends 'MDSCApp/base.html' %}
+
+{% block title %}Announcements{% endblock %}
+
+{% block content %}
+<div class="container inner-container">
+  <center><h2>Announcements</h2></center>
+  <br>
+  
+  <div class="container">
+    {% for announce in announcements %}
+      <div class="row">
+        <div class="col-sm-3">
+          <b>{{announce.msgTime}}</b>
+        </div>
+        <div class="col-sm-9">
+          {{announce.msg | safe}}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+
+{% endblock %}

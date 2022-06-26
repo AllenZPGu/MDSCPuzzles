@@ -15,6 +15,6 @@ urlpatterns = [
     path('puzzles/', views.puzzles),
     path('solve/<int:puzzleId>/', views.solve),
     path('leaderboard/', views.leaderboard),
-    path('credits/', views.credits),
+    path('announcements/', views.announcements),
     path('wardle/<str:wardleId>/', views.wardle),
 ]

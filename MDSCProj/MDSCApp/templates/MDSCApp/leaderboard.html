@@ -8,7 +8,7 @@
 <div class="container inner-container">
   <center>
     <h2>Leaderboard</h2>
-    <p>Solved puzzles earn a tick (✔️), while puzzles solved within 6 hours of release are marked with ⚡.</p>
+    <p>Solved puzzles earn a tick (✔️), while those solved within 9 hours of release are additionally marked with ⚡. Times are in hh:mm:ss format.</p>
   </center>
   
   <br>
@@ -17,7 +17,7 @@
       <div class="col-sm-7">
         <div class="container" style="padding-left: 0px;">
           <div class="row">
-            <div class="col-6">
+            <div class="col-5">
               Name
             </div>
             <div class="col-2">
@@ -26,7 +26,7 @@
             <div class="col-2">
               #Solved
             </div>
-            <div class="col-2">
+            <div class="col-3">
               Avg. solve time
             </div>
           </div>
@@ -40,11 +40,11 @@
       </div></div></div>
     </div>
     {% for x in dictList %}
-      <div class="row" style="padding-bottom: 20px;">
+      <div class="row" style="padding-bottom: 20px">
         <div class="col-sm-7">
           <div class="container" style="padding-left: 0px;">
             <div class="row">
-              <div class="col-6">
+              <div class="col-5">
                 {{x.name}}
               </div>
               <div class="col-2">
@@ -53,7 +53,7 @@
               <div class="col-2">
                 {{x.puzzs}}
               </div>
-              <div class="col-2">
+              <div class="col-3">
                 {{x.avgSolveTime}}
               </div>
             </div>
@@ -71,6 +71,9 @@
           {% endfor %}
         </div></div></div>
       </div>
+    {% empty %}
+      <br>
+      <center><h4>No one has solved anything yet!</h4></center>
     {% endfor %}
   </div>
 </div>

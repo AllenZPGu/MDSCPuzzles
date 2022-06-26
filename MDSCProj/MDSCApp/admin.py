@@ -4,3 +4,4 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Guess)
+admin.site.register(Announcement)

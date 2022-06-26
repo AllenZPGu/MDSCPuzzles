@@ -1,8 +1,6 @@
 import json
 from django import forms
 from django.conf import settings
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Max
 from django.forms import formset_factory, ValidationError
@@ -12,9 +10,6 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.html import strip_tags
-from django.views.decorators.cache import never_cache
-from django.views.decorators.http import last_modified
-from django.contrib.auth.models import User
 # from datetime import datetime
 
 from .forms import *
@@ -141,5 +136,13 @@ def wardle(request, wardleId):
         raise Http404()
     return render(request, f'MDSCApp/wardlePages/wardle{wardleId}.html')
 
-def credits(request):
-    return render(request, 'MDSCApp/credits.html')
+def announcements(request):
+    x = Announcement.objects.all()
+    y = []
+    for i in x:
+        a = i.msgTime.astimezone(pytz.timezone("Australia/Melbourne"))
+        y.append({'msgTime': f'{a.strftime("%a")} {a.strftime("%d/%m/%Y %I:%M%p").lower()}',
+        'msg': i.msg})
+    y = sorted(y, key=lambda z:z['msgTime'])
+    y.reverse()
+    return render(request, 'MDSCApp/announcements.html', {'announcements':y})
