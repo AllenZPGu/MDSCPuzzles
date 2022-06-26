@@ -23,22 +23,22 @@ var x = setInterval(function() {
 
   // Display the result in the element with id="demo"
   if (!!p1c) {if (days >= 0) {
-    p1c.innerHTML = "Released in <br>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    p1c.innerHTML = "Unlocks in <br>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   } else {
     p1c.innerHTML = "Released NOW<br>Please refresh";
   }}
   if (!!p2c) {if (days+1 >= 0) {
-    p2c.innerHTML = "Released in <br>" + (days+1) + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    p2c.innerHTML = "Unlocks in <br>" + (days+1) + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   } else {
     p2c.innerHTML = "Released NOW<br>Please refresh";
   }}
   if (!!p3c) {if (days+2 >= 0) {
-    p3c.innerHTML = "Released in <br>" + (days+2) + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    p3c.innerHTML = "Unlocks in <br>" + (days+2) + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   } else {
     p3c.innerHTML = "Released NOW<br>Please refresh";
   }}
   if (!!p4c) {if (days+3 >= 0) {
-    p4c.innerHTML = "Released in <br>" + (days+3) + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    p4c.innerHTML = "Unlocks in <br>" + (days+3) + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   } else {
     p4c.innerHTML = "Released NOW<br>Please refresh";
   }}
