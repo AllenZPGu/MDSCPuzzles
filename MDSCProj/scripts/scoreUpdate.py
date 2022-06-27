@@ -30,7 +30,7 @@ def run():
         writer = csv.writer(f)
         writer.writerow(header)
         for studentId in studentIds:
-            student = allGuesses.filter(studentId=studentId)
+            student = [i for i in allGuesses if i.studentId == studentId]
             infoToWrite = [studentId, student[0].name]
             for puzzleId in (1,2,3,4):
                 infoToWrite.append(student.filter(puzzle=puzzleId)[0].points*500 if puzzleId in [i.puzzle for i in student] else 0)
