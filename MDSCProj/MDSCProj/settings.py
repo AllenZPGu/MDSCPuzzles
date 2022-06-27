@@ -20,7 +20,7 @@ import pytz
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SOLUTION_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 7, 2, 0, 0))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -93,6 +93,7 @@ if DEVMODE:
         }
     }
     INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 25, 9, 0))
+    SOLUTION_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 7, 2, 0, 0))
 else:
     DATABASES = {
         "default": {
@@ -101,6 +102,7 @@ else:
         }
     }
     INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 27, 9, 0))
+    SOLUTION_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 7, 2, 0, 0))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
