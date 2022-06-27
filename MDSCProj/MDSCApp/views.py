@@ -134,7 +134,20 @@ def wardle(request, wardleId):
             raise Http404()
     except:
         raise Http404()
-    return render(request, f'MDSCApp/wardlePages/wardle{wardleId}.html')
+    return render(request, 'MDSCApp/puzzlePages/wardle.html', {'wardleId':wardleId})
+
+
+def wardleAjax(request):
+    targetList = ['heart', 'atopy', 'shiga', 'lasix', 'lumen', 'toxic']
+    if request.method == "GET":
+        wardleId = request.GET.get("wardleId")
+        tempId = int(wardleId) if wardleId != 'infinity' else 6
+        if tempId != 6:
+            return JsonResponse({"dictionary":getWardleDictionary(), "targetWord":targetList[tempId-1]}, status = 200)
+        else:
+            return JsonResponse({"dictionary":targetList, "targetWord":targetList[tempId-1]}, status = 200)
+    else:
+        return JsonResponse({}, status=400)
 
 def announcements(request):
     x = list(Announcement.objects.all())

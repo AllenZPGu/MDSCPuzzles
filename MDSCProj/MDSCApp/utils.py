@@ -2,6 +2,7 @@ import datetime
 import pytz
 import string
 from django.conf import settings
+import os
 tz = pytz.timezone('Australia/Melbourne')
 
 def calcPuzzleState():
@@ -63,3 +64,8 @@ def capitaliseAfterSpace(x):
         else:
             y += x[i]
     return y
+
+def getWardleDictionary():
+    with open(os.path.join(settings.BASE_DIR, 'MDSCApp/wardleWords.txt')) as f:
+        toRet = [i[:-1].lower() for i in f]
+    return toRet
