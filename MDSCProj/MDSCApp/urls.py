@@ -17,5 +17,6 @@ urlpatterns = [
     path('leaderboard/', views.leaderboard),
     path('announcements/', views.announcements),
     path('wardle/<str:wardleId>/', views.wardle),
-    path('wardleAjax/', views.wardleAjax)
+    path('wardleAjax/', views.wardleAjax),
+    path('wardleTestingSecret/<str:wardleId>/', views.wardle)
 ]
