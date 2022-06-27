@@ -88,6 +88,7 @@
 
 </div>
 
+
 <script>
   $.ajax({
     type: 'GET',
@@ -97,7 +98,6 @@
         const dictionary = response["dictionary"];
         const targetWord = response["targetWord"];
         grandCall(dictionary, targetWord);
-        
     },
     error: function (response) {
         alert("An issue has occurred! Please contact Allen.");
@@ -106,5 +106,6 @@
 </script>
 
 <script src="{% static 'MDSCApp/js/ward.js' %}" type="text/javascript"></script>
+
 
 {% endblock %}

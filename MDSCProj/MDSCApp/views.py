@@ -139,6 +139,8 @@ def wardle(request, wardleId):
 
 def wardleAjax(request):
     targetList = ['heart', 'atopy', 'shiga', 'lasix', 'lumen', 'toxic']
+    if not is_ajax(request):
+        raise Http404()
     if request.method == "GET":
         wardleId = request.GET.get("wardleId")
         tempId = int(wardleId) if wardleId != 'infinity' else 6

@@ -69,3 +69,6 @@ def getWardleDictionary():
     with open(os.path.join(settings.BASE_DIR, 'MDSCApp/wardleWords.txt')) as f:
         toRet = [i[:-1].lower() for i in f]
     return toRet
+
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
