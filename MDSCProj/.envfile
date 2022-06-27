@@ -1,5 +1,5 @@
 DEVMODE=False
-DEBUG=True
+DEBUG=False
 SECRET_KEY="ubfxhi$qrj&9$s&^g5lmru3l03h5azq&w@mfso0+*beq71x!8t"
 DBNAME=mdscdb
 DBUSER=mdscdbuser

@@ -33,7 +33,7 @@ def run():
             student = [i for i in allGuesses if i.studentId == studentId]
             infoToWrite = [studentId, student[0].name]
             for puzzleId in (1,2,3,4):
-                infoToWrite.append(student.filter(puzzle=puzzleId)[0].points*500 if puzzleId in [i.puzzle for i in student] else 0)
+                infoToWrite.append([i for i in allGuesses if i.puzzle == puzzleId][0].points*500 if puzzleId in [i.puzzle for i in student] else 0)
             infoToWrite.append(sum([int(i) for i in infoToWrite[-4:]]))
             writer.writerow(infoToWrite)
 
