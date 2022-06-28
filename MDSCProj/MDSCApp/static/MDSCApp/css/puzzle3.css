@@ -6,3 +6,7 @@ li {
 ol {
 	padding-left: 1rem;
 }
+
+.static-span {
+	font-style: italic;
+}
