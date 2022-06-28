@@ -36,11 +36,13 @@ def stripGuess(x):
         return ''
 
 def checkGuessCorrect(puzzleId, x):
-    answers = {1:('ELIZABETHHOLMES', 'HOLMES'),
-               2:('TOXIC'),
-               3:('TESTANSWERC'),
-               4:('HOMESICKNESS')}
+    answers = {1:['ELIZABETHHOLMES', 'HOLMES'],
+               2:['TOXIC'],
+               3:['ACOUSTICNEUROMA'],
+               4:['HOMESICKNESS']}
     try:
+        if stripGuess(x) == '':
+            return False
         z = stripGuess(x) in answers[puzzleId]
         return z
     except:
@@ -49,7 +51,7 @@ def checkGuessCorrect(puzzleId, x):
 def getTitle(puzzleId):
     titles = {1:'Shaping Medicine',
               2:'Wardle',
-              3:'Puzzle 3 Title',
+              3:"I Can't Hear You!",
               4:'Puzzle 4 TItle'}
     return titles[puzzleId]
 

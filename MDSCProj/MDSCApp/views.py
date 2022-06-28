@@ -17,6 +17,7 @@ from .models import *
 import os
 import string
 from .utils import *
+import random
 # import requests
 # import csv
 # from io import StringIO
@@ -163,3 +164,16 @@ def announcements(request):
         'msg': i.msg})
     y.reverse()
     return render(request, 'MDSCApp/announcements.html', {'announcements':y})
+
+def wardleCasual(request):
+    return render(request, 'MDSCApp/puzzlePages/wardleCasual.html')
+
+
+def wardleAjaxCasual(request):
+    if not is_ajax(request):
+        raise Http404()
+    if request.method == "GET":
+        x = getWardleDictionary()
+        return JsonResponse({"dictionary":x, "targetWord":random.choice(x)}, status = 200)
+    else:
+        return JsonResponse({}, status=400)

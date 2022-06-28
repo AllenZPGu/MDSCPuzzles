@@ -1,0 +1,107 @@
+{% extends 'MDSCApp/base.html' %}
+{% load static %}
+
+{% block title %}Wardle: Casual Mode{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/ward.css'%}">
+
+<div class="container inner-container" style="padding-left:0px; padding-right:0px; border-color: #235c4a;">
+  <center>
+    <h3>Wardle: Casual Mode</h3>
+    <p class="flavourtext">Did you have fun with <a href="/puzzle/2/">Puzzle 2: Wardle</a>, and wanted more Wardle in your life? Then welcome to Wardle: Casual Mode! Every time you load or refresh this page, the target ward changes, so you can have (almost) endless fun.</p>
+    <p class="flavourtext">(Note: This is not a puzzle.)</p>
+
+  </center>
+
+  <div class="wardle-main">    
+    <div class="alert-container" data-alert-container></div>
+    <div data-guess-grid class="guess-grid">
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+    </div>
+    <div data-keyboard class="keyboard">
+      <button class="key" data-key="Q">Q</button>
+      <button class="key" data-key="W">W</button>
+      <button class="key" data-key="E">E</button>
+      <button class="key" data-key="R">R</button>
+      <button class="key" data-key="T">T</button>
+      <button class="key" data-key="Y">Y</button>
+      <button class="key" data-key="U">U</button>
+      <button class="key" data-key="I">I</button>
+      <button class="key" data-key="O">O</button>
+      <button class="key" data-key="P">P</button>
+      <div class="space"></div>
+      <button class="key" data-key="A">A</button>
+      <button class="key" data-key="S">S</button>
+      <button class="key" data-key="D">D</button>
+      <button class="key" data-key="F">F</button>
+      <button class="key" data-key="G">G</button>
+      <button class="key" data-key="H">H</button>
+      <button class="key" data-key="J">J</button>
+      <button class="key" data-key="K">K</button>
+      <button class="key" data-key="L">L</button>
+      <div class="space"></div>
+      <button data-enter class="key large">Enter</button>
+      <button class="key" data-key="Z">Z</button>
+      <button class="key" data-key="X">X</button>
+      <button class="key" data-key="C">C</button>
+      <button class="key" data-key="V">V</button>
+      <button class="key" data-key="B">B</button>
+      <button class="key" data-key="N">N</button>
+      <button class="key" data-key="M">M</button>
+      <button data-delete class="key large">BACK</button>
+  </div>
+
+</div>
+
+
+<script>
+  $.ajax({
+    type: 'GET',
+    url: "/wardleAjaxCasual/",
+    data: {},
+    success: function (response) {
+        const dictionary = response["dictionary"];
+        const targetWord = response["targetWord"];
+        grandCall(dictionary, targetWord);
+    },
+    error: function (response) {
+        alert("An issue has occurred! Please contact Allen.");
+    }
+  })
+</script>
+
+<script src="{% static 'MDSCApp/js/wardleCasual.js' %}" type="text/javascript"></script>
+
+
+{% endblock %}
