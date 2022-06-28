@@ -32,7 +32,10 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 DEVMODE = os.getenv("DEVMODE", "False") == "True"
 
-ALLOWED_HOSTS = ['*']
+if DEVMODE:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['mdscpuzzles.com']
 
 
 # Application definition
@@ -146,4 +149,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = []
 
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_DOMAIN = "mdscpuzzles.com"
