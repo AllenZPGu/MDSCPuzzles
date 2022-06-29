@@ -1,6 +1,6 @@
 DEVMODE=False
 DEBUG=False
-SECRET_KEY="ubfxhi$qrj&9$s&^g5lmru3l03h5azq&w@mfso0+*beq71x!8t"
+SECRET_KEY="qmx868ksjzl5+e2pz@1)_d+f=qzhv7596augce0^ndfk4z!&u@"
 DBNAME=mdscdb
 DBUSER=mdscdbuser
 DBPASS=D02Sh1QB7wk32LQk

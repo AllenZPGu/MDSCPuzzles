@@ -39,7 +39,7 @@ def checkGuessCorrect(puzzleId, x):
     answers = {1:['ELIZABETHHOLMES', 'HOLMES'],
                2:['TOXIC'],
                3:['ACOUSTICNEUROMA'],
-               4:['HOMESICKNESS']}
+               4:['HOMESICKNESS', 'HOMESICK']}
     try:
         if stripGuess(x) == '':
             return False
@@ -52,7 +52,7 @@ def getTitle(puzzleId):
     titles = {1:'Shaping Medicine',
               2:'Wardle',
               3:"I Can't Hear You!",
-              4:'Puzzle 4 TItle'}
+              4:'Professional Behaviour Notification'}
     return titles[puzzleId]
 
 def capitaliseAfterSpace(x):

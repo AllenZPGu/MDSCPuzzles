@@ -1,0 +1,111 @@
+{% extends 'MDSCApp/base.html' %}
+{% load static %}
+
+{% block title %}Puzzle 4: Professional Behaviour Notification{% endblock %}
+
+{% block content %}
+
+<div class="container inner-container" style="border-color: #b0842a;">
+  <center>
+    <h4>Puzzle {{puzInfo.puzId}}</h4>
+    <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <p class="flavourtext">(Note: this puzzle is best viewed either on a computer, or via the PDF version if using mobile.)</p>
+    <a class="btn btn-primary" href="/pdf/4/" target="_blank" style="margin: 5px;">Download PDF version</a>
+    <a class="btn btn-success" href="/solve/4/" style="margin: 5px;">Submit a guess</a>
+    <br>
+  </center>
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/puzzle4.css'%}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <center>
+    <div class="puzzle-4-container">
+      <br>
+      <center><img src="/static/MDSCApp/img/puzImg/4A.png" alt="Pic 4A" class="puz-4-img"></center>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="puz-4-txt">Student name: <span style="background-color:black;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></p>
+          </div>
+          <div class="col-sm-6">
+            <p class="puz-4-txt">Student number (if known): <span style="background-color:black;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="puz-4-txt">Setting: <span class="hand">Melbourne Teaching Hospital</span></p>
+          </div>
+          <div class="col-sm-6">
+            <p class="puz-4-txt">Date of concern (if applicable): <span class="hand">16/11/2004</span></p>
+          </div>
+        </div>
+      </div>
+     
+      <p class="puz-4-txt">This document is used to communicate concerns about a student’s professional behaviour to their supervisor. Please complete this form with as much detail as possible.</p>
+      <p class="puz-4-txt"><b>Please indicate the behaviour(s) you are concerned about:</b></p>
+      <p class="puz-4-txt"><b><i class="bi bi-check-square"></i> Personal behaviour</b><br>This includes concerns about confidentiality, honesty and integrity, appearance and grooming, respecting privileges and codes of conduct.</p>
+      <p class="puz-4-txt"><b><i class="bi bi-check-square"></i> Interactions with others</b><br>This relates to interactions with the patient, those important to the patient, colleagues and people working in the education or health system.</p>
+      <p class="puz-4-txt"><b><i class="bi bi-check-square"></i> Reliability</b><br>This includes punctuality, monitor and responding to announcements, unplanned absences, preparation for learning and teaching sessions, completion of tasks in a timely manner.</p>
+      <p class="puz-4-txt"><b><i class="bi bi-check-square"></i> Feedback</b><br>Acceptance of and response to feedback.</p>
+
+      <center>
+        <div class="puzzle-4-container-2">
+          <p class="puz-4-txt"><b>Description of concern:</b></p>
+          <p class="puz-4-txt-2">The student behaved incredibly unprofessionally during the eight months he was on hospital placement; I will summarise several episodes of such behaviour below.</p>
+
+          <ol class="puz-4-txt-2">
+            <li>In January, on the 6th, the student inappropriately administered adrenaline to a patient, causing a cardiac arrest. The student then placed the patient in a hyperbaric chamber. He also recommended another patient to take cigarettes for diarrhoea.</li>
+
+            <li>In May, on the 9th, the student openly talked about planning/attending a big party then was seen taking painkillers. He then went to a patient’s room and played loud music before implanting a hearing device. A report was also lodged of drunken behaviour on hospital premises.</li>
+
+            <li>In February, on the 1st, the student was very behind on paperwork assignments. He then inappropriately attended a group therapy session for patients, before being seen stealing a patient’s file.</li>
+
+            <li>In May, on the 4th, the student disrupted an oncological consult session before spending the night in the sleep lab. He then injected himself with insulin resulting in a seizure. He was then seen engaging in inappropriate personal intimacy with a medical administrator.</li>
+
+            <li>In August, on the 12th, the student would pretend to call patients into clinic but actually leave them to wait. He then left placement to play games at home with his best friend. He was then seen holding a gun and a sword at the hospital.</li>
+
+            <li>In January, on the 4th, the student accused a patient’s mother of being negligent when she refuses treatment for her son, as is her right. The student then fakes a phone call. He also argued with the son of an elderly patient.</li>
+
+            <li>In July, on the 14th, the student engaged in a religious debate with a patient over whether God has healing powers. He then forged a signature to access a patient’s confidential records. The student then lied to the first patient in order to convince him to accept a treatment to which he was originally opposed.</li>
+
+            <li>In March, on the 4th, the student doped a colleague’s coffee with stimulants. He then attempted to inform a patient of her diagnosis despite her wishes not to know. He then disclosed a highly personal matter of that patient to her parents without her consent.</li>
+
+            <li>In July, on the 4th, the student discharges a patient before he is cleared to do so. He also stoked the ire of his colleague’s mother, resulting in a legal challenge. The student then insulted another colleague in order to raise his blood pressure.</li>
+
+            <li>In February, on the 5th, the student constantly talks inappropriately about a young patient’s physical attractiveness while accusing her of being a drug addict. The student then refuses to perform mandatory reporting. The student then deliberately misgenders the patient. Another patient was told by the student to stop whining.</li>
+
+            <li>In August, on the 6th, the student belittled a patient’s grief over his inability to play professional hockey. He then switched places with a patient who was to undergo an MRI scan, causing himself to become stuck in the machine.</li>
+
+            <li>In July, on the 6th, the student accosted a professional boxer and injected him with adrenaline while hitting them. He then forced the boxer to drink multiple bottles of water. He then knocked the boxer out with a blow to the neck.</li>
+
+            <li>In April, on the 4th, the student attempted to install a television that was not paid for. The student then asked a patient to undress herself over telehealth, before ordering for neurosurgery remotely.</li>
+
+            <li>In February, on the 7th, the student deliberately shut a female colleague out of his group project by holding meetings in the male toilets. The student then inappropriately accessed the female toilets to accuse a patient’s wife of attempted murder.</li>
+
+            <li>In March, on the 16th, the student suggested a bleeding patient be prescribed anticoagulants. He then fooled around the hospital in a wheelchair, while making racist remarks to the patient’s parents.</li>
+
+            <li>In August, on the 6th, the student attempted to destroy his friend’s cancer medications. Bizarrely, he then attempted to administer those drugs to his friend. All this occurred while the student was tasked with clerking a paediatric patient.</li>
+
+            <li>In June, on the 9th, the student triggered a false bedside alarm and forcibly de-catheterised a patient while taking a group of junior students on the ward. He then lied to a patient about his diagnosis. </li>
+
+            <li>In June, on the 3rd, the student was arrested by police after drunken sleepwalking. He then inappropriately asked a patient about his sexual orientation.</li>
+          </ol>
+        </div>
+      </center>
+      <br>
+
+      <p class="puz-4-txt">Signed: <span class="hand">Clinical Dean, Melbourne Teaching Hospital</span>
+
+    </div>
+
+
+
+  </center>
+
+  <br>
+</div>
+
+{% endblock %}
