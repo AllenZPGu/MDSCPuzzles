@@ -6,8 +6,8 @@ import csv
 
 def run():
     tz = pytz.timezone("Australia/Melbourne")
-    recordStart = tz.localize(datetime.datetime(2022, 6, 27, 9, 0))
-    recordEnd = tz.localize(datetime.datetime(2022, 6, 27, 21, 0))
+    recordStart = tz.localize(datetime.datetime(2022, 6, 27, 21, 0))
+    recordEnd = tz.localize(datetime.datetime(2022, 6, 28, 21, 0))
     allGuesses = Guess.objects.filter(correct=True)
     studentIds = sorted(list(set([i.studentId for i in allGuesses])))
 

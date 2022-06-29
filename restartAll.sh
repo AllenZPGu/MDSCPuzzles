@@ -8,4 +8,3 @@ sudo systemctl restart gunicorn
 echo Restarted gunicorn
 sudo systemctl restart nginx
 echo Restarted nginx
-
