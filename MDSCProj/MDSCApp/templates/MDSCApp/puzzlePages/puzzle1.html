@@ -12,6 +12,21 @@
     <a class="btn btn-primary" href="/pdf/1/" target="_blank" style="margin: 5px;">Download PDF version</a>
     <a class="btn btn-success" href="/solve/1/" style="margin: 5px;">Submit a guess</a>
     <br>
+    {% if puzInfo.hints %}
+      <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#hint1" aria-expanded="false" aria-controls="hint1" style="margin:5px">
+        Early hint (show/hide)
+      </button>
+      <div id="hint1" class="collapse">
+        <p>Google reverse-image search these characters and see how they link to each other.</p>
+      </div>
+      <br>
+      <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#hint2" aria-expanded="false" aria-controls="hint2" style="margin:5px">
+        Late hint (show/hide)
+      </button>
+      <div id="hint2" class="collapse">
+        The characters come in a specific order. How does a triangle differ from a square?
+      </div>
+    {% endif %}
     <br>
     <p class="flavourtext">
       Medical history is full of titans, but how do they square up against each other? Of course, with the good comes the bad, especially as we come full circle...

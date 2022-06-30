@@ -95,6 +95,7 @@ if DEVMODE:
         }
     }
     INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 25, 9, 0))
+    HINT_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 30, 12, 0))
     SOLUTION_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 7, 2, 0, 0))
 else:
     DATABASES = {
@@ -104,6 +105,7 @@ else:
         }
     }
     INDEX_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 27, 9, 0))
+    HINT_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 6, 30, 15, 0))
     SOLUTION_TIME = pytz.timezone('Australia/Melbourne').localize(datetime.datetime(2022, 7, 2, 0, 0))
 
 # Password validation

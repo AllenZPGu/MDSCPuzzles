@@ -74,3 +74,13 @@ def getWardleDictionary():
 
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
+def getHints(puzzleId):
+    hints = {1:['Google reverse-image search these characters and see how they link to each other.',
+               'The characters come in a specific order. How does a triangle differ from a square?'],
+            2:['One of these Wardles is not like the rest!'],
+            3:['When in doubt, speak it aloud. How do the answers fit the clues?',
+               'Some steps are best done not once, but twice.'],
+            4:['There is a universe in which these episodes happened. In that universe, each season lasts a month.',
+               'As the old saying goes: when you hear hooves, think zebras not horses.']}
+    return hints[puzzleId]

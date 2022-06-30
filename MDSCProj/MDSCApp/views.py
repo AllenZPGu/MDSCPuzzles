@@ -39,8 +39,9 @@ def puzzle(request, puzzleId):
             raise Http404()
     except:
         raise Http404()
+    hints = datetime.datetime.now(tz) > settings.HINT_TIME
 
-    puzInfo = {'puzId':puzzleId, 'title':getTitle(puzzleId)}
+    puzInfo = {'puzId':puzzleId, 'title':getTitle(puzzleId), 'hints':hints}
     specificArgs = {}
     if puzzleId == 1:
         specificArgs['pplRange'] = range(1,18)

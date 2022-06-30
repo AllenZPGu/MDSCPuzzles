@@ -11,6 +11,15 @@
     <h4>Puzzle {{puzInfo.puzId}}</h4>
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
     <a class="btn btn-success" href="/solve/2/">Submit a guess</a>
+    <br>
+    {% if puzInfo.hints %}
+      <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#hint1" aria-expanded="false" aria-controls="hint1" style="margin:5px">
+        Hint (show/hide)
+      </button>
+      <div id="hint1" class="collapse">
+        <p>One of these Wardles is not like the rest!</p>
+      </div>
+    {% endif %}
     <br><br>
     <p class="flavourtext">
       After a gruelling consultant word round, you decide to have a break and play a few rounds of your favourite ward game. Trouble is, there are so many to attempt.
