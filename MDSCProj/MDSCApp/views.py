@@ -40,8 +40,9 @@ def puzzle(request, puzzleId):
     except:
         raise Http404()
     hints = datetime.datetime.now(tz) > settings.HINT_TIME
+    sols = datetime.datetime.now(tz) > settings.SOLUTION_TIME
 
-    puzInfo = {'puzId':puzzleId, 'title':getTitle(puzzleId), 'hints':hints}
+    puzInfo = {'puzId':puzzleId, 'title':getTitle(puzzleId), 'hints':hints, 'sols':sols}
     specificArgs = {}
     if puzzleId == 1:
         specificArgs['pplRange'] = range(1,18)
@@ -70,6 +71,8 @@ def puzzles(request):
 def solve(request, puzzleId):
     try:
         if puzzleId > calcPuzzleState() or puzzleId < 1 or puzzleId > 4:
+            raise Http404()
+        if datetime.datetime.now(tz) > settings.SOLUTION_TIME:
             raise Http404()
     except:
         raise Http404()
@@ -178,3 +181,14 @@ def wardleAjaxCasual(request):
         return JsonResponse({"dictionary":x, "targetWord":random.choice(x)}, status = 200)
     else:
         return JsonResponse({}, status=400)
+
+def solution(request, puzzleId):
+    try:
+        if datetime.datetime.now(tz) < settings.SOLUTION_TIME:
+            raise Http404()
+    except:
+        raise Http404()
+
+    x = Guess.objects.filter(puzzle=puzzleId)
+    puzInfo = {'id': puzzleId, 'title': getTitle(puzzleId), 'solves': len(x.filter(correct=True)), 'guesses': len(x)}
+    return render(request, f'MDSCApp/puzzlePages/sol{puzzleId}.html', {'puzInfo':puzInfo})

@@ -20,4 +20,5 @@ urlpatterns = [
     path('wardle/<str:wardleId>/', views.wardle),
     path('wardleAjax/', views.wardleAjax),
     path('wardleAjaxCasual/', views.wardleAjaxCasual),
+    path('solution/<int:puzzleId>/', views.solution),
 ]

@@ -175,3 +175,15 @@ h1, h2, h3, h4, h5, h6 {
   margin: 5px;
   background-color: #FFA500;
 }
+
+.btn-warning:hover {
+  color: white;
+}
+
+.btn-info {
+  color: white;
+}
+
+.btn-info:hover {
+  color: white;
+}

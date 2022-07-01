@@ -10,7 +10,11 @@
   <center>
     <h4>Puzzle {{puzInfo.puzId}}</h4>
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
-    <a class="btn btn-success" href="/solve/2/">Submit a guess</a>
+    {% if sols %}
+      <a class="btn btn-success" href="/solve/{{puzInfo.puzId}/" style="margin: 5px;">Submit a guess</a>
+    {% else %}
+      <a class="btn btn-info" href="/solution/{{puzInfo.puzId}/" style="margin: 5px;">View solution</a>
+    {% endif %}
     <br>
     {% if puzInfo.hints %}
       <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#hint1" aria-expanded="false" aria-controls="hint1" style="margin:5px">

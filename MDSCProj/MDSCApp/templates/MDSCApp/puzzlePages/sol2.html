@@ -1,0 +1,21 @@
+{% extends 'MDSCApp/base.html' %}
+{% load static %}
+
+{% block title %}Puzzle {{puzInfo.id}} Solution: {{puzInfo.title}}{% endblock %}
+
+{% block content %}
+
+<div class="container inner-container">
+  <center>
+    <h4>Solution for Puzzle {{puzInfo.id}}</h4>
+    <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <h5>Solves: {{puzInfo.solves}}</h5>
+    <h5>Guesses: {{puzInfo.guesses}}</h5>
+  </center>
+
+
+  <h4>Solution is work in progress. Check back in a few hours.</h4>
+
+</div>
+
+{% endblock %}
