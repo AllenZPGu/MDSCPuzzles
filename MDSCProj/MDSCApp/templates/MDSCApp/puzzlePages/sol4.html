@@ -4,20 +4,124 @@
 {% block title %}Puzzle {{puzInfo.id}} Solution: {{puzInfo.title}}{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/sol.css'%}">
 
 <div class="container inner-container">
   <center>
     <h4>Solution for Puzzle {{puzInfo.id}}</h4>
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <h4 style="margin-bottom: 1rem">Solution: <span class="sol-hl">HOMESICK</span> or <span class="sol-hl">HOMESICKNESS</span></h4>
     <h5>Solves: {{puzInfo.solves}}</h5>
     <h5>Guesses: {{puzInfo.guesses}}</h5>
+    <br>
   </center>
 
-  <p>This Professional Behaviour Notification lists several incidents involving an unprofessional medical student at the Best Medical School (any resemblance to real medical schools is purely coincidental).</p>
+  <p>This Professional Behaviour Notification (PBN) lists several incidents involving an unprofessional medical student at the Best Medical School (any resemblance to real medical schools is purely coincidental).</p>
 
-  <p>The first step is to identify this "student". Several clues point towards him being <b>Dr Gregory House</b>, from the TV show <b>House MD</b>:</p> 
+  <p>The first step is to identify this "student". Several clues point towards him being <b>Dr Gregory House</b>, from the TV show <b>House MD</b>:</p>
 
-  <h4>Solution is work in progress. Check back in a few hours.</h4>
+  <ul>
+    <li>House is known for his unethical practice and unprofessional behaviour towards patients and colleagues</li>
+    <li>The hospital is the "Melbourne Teaching Hospital", based off House's Princeton-Plainsboro Teaching Hospital</li>
+    <li>The PBN is dated 16/11/2004, which is when the first House episode aired</li>
+    <li>The word "episode" appears in the "Description of concern" textboxt flavourtext</li>
+    <li>A lesser clue is the "Best Medical School", which is the medical school named in the Samuel Shem novel <font style='font-style:italic;'>The House Of God</font></li>
+  </ul>
+
+  <p>The next step is to identify the 18 episodes. To help, notice that the student's placement lasted 8 months, while House MD had 8 seaseons. Hence, the months correspond to the seasons where the episodes took place. Using the <a href="https://house.fandom.com/wiki/House_Wiki" target="_blank">House Wiki resource</a>, we now identify all 18 episodes from the episode synopses on the wiki, noting that we only need to search the episodes within the given season.</p>
+
+  <p>The "date" is an index we apply on the episode titles to extract letters. Note that this "date" does NOT correspond to the episode number within a given season! If that were intended, the puzzle would have been written "In January 6th" instead of "On January, on the 6th"; the latter clearly implies that the date serves a different purpose than the month.</p>
+
+  <center>
+  <table class="table sol-table table-sm">
+    <thead style="font-weight: bold;">
+      <tr><td>Season</td><td>Episode</td><td>Episode title</td><td>Index</td></tr>
+    </thead>
+    <tbody>
+      <tr><td>1 (Jan)</td><td>s1e05</td><td><span class='sol-hl-r'>D</span>AMNED IF YOU DO</td><td>6</td></tr>
+      <tr><td>5 (May)</td><td>s5e22</td><td>HOUSE DIV<span class='sol-hl-r'>I</span>DED</td><td>9</td></tr>
+      <tr><td>2 (Feb)</td><td>s2e06</td><td><span class='sol-hl-r'>S</span>PIN</td><td>1</td></tr>
+      <tr><td>5 (May)</td><td>s5e23</td><td>UND<span class='sol-hl-r'>E</span>R MY SKIN</td><td>4</td></tr>
+      <tr><td>8 (Aug)</td><td>s8e08</td><td>PERILS OF PAR<span class='sol-hl-r'>A</span>NOIA</td><td>12</td></tr>
+      <tr><td>1 (Jan)</td><td>s1e08</td><td>POI<span class='sol-hl-r'>S</span>ON</td><td>4</td></tr>
+      <tr><td>7 (Jul)</td><td>s7e08</td><td>SMALL SACRIFIC<span class='sol-hl-r'>E</span>S</td><td>14</td></tr>
+      <tr><td>3 (Mar)</td><td>s3e22</td><td>RES<span class='sol-hl-r'>I</span>GNATION</td><td>4</td></tr>
+      <tr><td>7 (Jul)</td><td>s7e20</td><td>CHA<span class='sol-hl-r'>N</span>GES</td><td>4</td></tr>
+      <tr><td>2 (Feb)</td><td>s2e13</td><td>SKIN <span class='sol-hl-r'>D</span>EEP</td><td>5</td></tr>
+      <tr><td>7 (Jul)</td><td>s7e17</td><td>FALL FROM GRAC<span class='sol-hl-r'>E</span></td><td>13</td></tr>
+      <tr><td>7 (Jul)</td><td>s7e21</td><td>THE FI<span class='sol-hl-r'>X</span></td><td>6</td></tr>
+      <tr><td>4 (Apr)</td><td>s4e11</td><td>FRO<span class='sol-hl-r'>Z</span>EN</td><td>4</td></tr>
+      <tr><td>2 (Feb)</td><td>s2e15</td><td>CLUELE<span class='sol-hl-r'>S</span>S</td><td>7</td></tr>
+      <tr><td>3 (Mar)</td><td>s3e13</td><td>NEEDLE IN A HAYSTA<span class='sol-hl-r'>C</span>K</td><td>16</td></tr>
+      <tr><td>8 (Aug)</td><td>s8e19</td><td>THE C W<span class='sol-hl-r'>O</span>RD</td><td>6</td></tr>
+      <tr><td>6 (Jun)</td><td>s6e05</td><td>BRAVE HEA<span class='sol-hl-r'>R</span>T</td><td>9</td></tr>
+      <tr><td>6 (Jun)</td><td>s6e19</td><td>TH<span class='sol-hl-r'>E</span> CHOICE</td><td>3</td></tr>
+    </tbody>
+  </table>
+  </center>
+
+  <p>The extracted clue phrase is <b>DISEASE INDEX Z SCORE</b>. This is not yet a final clue, but rather an instruction for the next step. Each House episode has a principal diagnosis, for which the House Wiki assigns a "zebra factor". This "Z score", if you will, rates how rare/unlikely a diagnosis is. (Interestingly, the term "zebra" meaning rare disease is coined by Shem's <font style='font-style:italic;'>The House of God</font>)</p>
+
+  <p>This clue thus tells us to go back to the episodes, find the primary diagnosis, and index via the zebra factor to extract letters.</p>
+
+  <center>
+    <div class="table-responsive-sm">
+      <table class="table sol-table table-sm">
+        <thead style="font-weight: bold;">
+          <tr><td>Episode</td><td>Zebra factor</td><td>Diagnosis</td></tr>
+        </thead>
+        <tbody>
+          <tr><td>(1.05) DAMNED IF YOU DO</td><td>3</td><td>AL<span class='sol-hl-r'>L</span>ERGICREACTIONTOCOPPERIUD</td></tr>
+          <tr><td>(5.22) HOUSE DIVIDED</td><td>5</td><td>SARC<span class='sol-hl-r'>O</span>IDOSIS</td></tr>
+          <tr><td>(2.06) SPIN</td><td>8</td><td>MYASTHE<span class='sol-hl-r'>N</span>IAGRAVIS ... (etc.)</td></tr>
+          <tr><td>(5.23) UNDER MY SKIN</td><td>1</td><td><span class='sol-hl-r'>G</span>ONORRHEACOMPLICATEDBYSEPSIS</td></tr>
+          <tr><td>(8.08) PERILS OF PARANOIA</td><td>9</td><td>DIPHTHER<span class='sol-hl-r'>I</span>A</td></tr>
+          <tr><td>(1.08) POISON</td><td>5</td><td>ORGA<span class='sol-hl-r'>N</span>OPHOSPHATEPOISONING</td></tr>
+          <tr><td>(7.08) SMALL SACRIFICES</td><td>7</td><td>MARBUR<span class='sol-hl-r'>G</span>MULTIPLESCLEROSIS</td></tr>
+          <tr><td>(3.22) RESIGNATION</td><td>3</td><td>IN<span class='sol-hl-r'>F</span>ECTIONFROMARTERY ... (etc.)</td></tr>
+          <tr><td>(7.20) CHANGES</td><td>6</td><td>TERAT<span class='sol-hl-r'>O</span>MA</td></tr>
+          <tr><td>(2.13) SKIN DEEP</td><td>10</td><td>TESTICULA<span class='sol-hl-r'>R</span>CANCER</td></tr>
+          <tr><td>(7.17) FALL FROM GRACE</td><td>8</td><td>ADULTRE<span class='sol-hl-r'>F</span>SUM</td></tr>
+          <tr><td>(7.21) THE FIX</td><td>6</td><td>PARAG<span class='sol-hl-r'>A</span>NGLIOMA</td></tr>
+          <tr><td>(4.11) FROZEN</td><td>5</td><td>FATE<span class='sol-hl-r'>M</span>BOLISM</td></tr>
+          <tr><td>(2.15) CLUELESS</td><td>7</td><td>GOLDPO<span class='sol-hl-r'>I</span>SONING</td></tr>
+          <tr><td>(3.13) NEEDLE IN A HAYSTACK</td><td>2</td><td>B<span class='sol-hl-r'>L</span>EEDINGFROMSWALLOWEDTOOTHPICK</td></tr>
+          <tr><td>(8.19) THE C WORD</td><td>4</td><td>ATR<span class='sol-hl-r'>I</span>ALMYXOMA</td></tr>
+          <tr><td>(6.05) BRAVE HEART</td><td>8</td><td>INTRACR<span class='sol-hl-r'>A</span>NIALBERRYANEURYSM</td></tr>
+          <tr><td>(6.19) THE CHOICE</td><td>2</td><td>A<span class='sol-hl-r'>R</span>NOLDCHIARIMALFORMATION</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </center>
+
+  <p>The extracted phrase reads <b>LONGING FOR FAMILIAR</b>, which is a description of <span class='sol-hl'>HOMESICKNESS</span>, a feeling when you miss your House. This is our final puzzle solution. We also accepted <span class='sol-hl'>HOMESICK</span> as a solution.
+
+  <hr>
+  <center>
+    <h5>Authors' note</h5>
+    <h6>Credit: Allen Gu, Dan Tao</h6>
+  </center>
+
+  <p>This puzzle came about because we wanted a puzzle requiring research into a specific topic area; in this case, House MD. Originally, the solution was going to be "SUNDOWNING" (late-day confusion) to fit the Day 4 theme of "Beyond the Horizon", but we changed this to "HOMESICK" for the thematic link to House as we thought that'll be more cute.</p>
+
+  <h6>What does DISEASE INDEX Z SCORE mean?</h6>
+  <p>The construction of this puzzle was quite constrained, as it required there to exist House episodes that both contained the right disease with the right letter in the zebra-factor index location, AND the episode title must contain the letter we needed for the first clue phrase. This meant that the two cluephrases were a little janky.</p>
+
+  <p>We deliberately chose "Z SCORE" to be the clue instead of "Z FACTOR" to intentionally mislead a little. Z-scores are of course used in medicine, most notably in bone density testing, but we hoped that this avenue wouldn't be pursued for too long because the other half of the clue ("DISEASE INDEX") wasn't being used. Plus, there is the additional joke of Z scores being the (hopefully deprecated) Victorian medical intern selection score.</p>
+
+  <p>In reality however, most solvers (reasonably) intepreted the word "INDEX" to mean something like "measurement", instead of its intended role in being an instruction to take the <font style='font-style:italic;'>n</font>th letter from something. Hence, the whole clue "DISEASE INDEX Z SCORE" more strongly pointed towards the wrong path (eg. osteoporosis) than we would have liked.</p>
+
+  <p>In hindsight, this first clue was definitely sub-optimal, and we should instead have made it more clear using something like "Z FACTOR DISEASE LETTERS". This 21-word clue would mean we could also have used "LONGING FOR FAMILIARITY", which makes more grammatical sense than the original. Sorry to everyone who got stuck at this stage; we definitely should have made this step a bit clearer in hindsight.</p>
+
+  <h6>Difficulty</h6>
+  <p>This puzzle was designed to be the most difficult of the Hunt, as by now, everyone should have gotten the hang of it! Specifically, it had ~3 layers, while the others had at most 2 layers to it, or had reasonablly straightfoward mechanisms. It also required an initial realisation of the House MD theme, which would be hard to arrive at if you weren't familiar with House.</p>
+
+  <h6>Faculty collusion?</h6>
+  <p>One last thing: an incredibly-timed email arrived from the Faculty regarding student behaviour at the conference. For the record, this was NOT part of the puzzle, and was purely coincidental (we swear).</p>
+
+  <div>
+    <center><img src="/static/MDSCApp/img/puzImg/FanImage.jpg" alt="Fan Image" style="max-width:min(400px, 100%);padding-top:10px"></center>
+  </div>
 
 
 </div>

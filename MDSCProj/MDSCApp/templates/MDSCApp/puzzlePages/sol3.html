@@ -4,13 +4,16 @@
 {% block title %}Puzzle {{puzInfo.id}} Solution: {{puzInfo.title}}{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/sol.css'%}">
 
 <div class="container inner-container">
   <center>
     <h4>Solution for Puzzle {{puzInfo.id}}</h4>
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <h4 style="margin-bottom: 1rem">Solution: <span class="sol-hl">ACOUSTICNEUROMA</span></h4>
     <h5>Solves: {{puzInfo.solves}}</h5>
     <h5>Guesses: {{puzInfo.guesses}}</h5>
+    <br>
   </center>
 
   <h4>Solution is work in progress. Check back in a few hours.</h4>

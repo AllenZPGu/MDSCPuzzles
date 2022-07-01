@@ -1,0 +1,18 @@
+.sol-hl {
+  font-weight: bold;
+  color: green;
+}
+
+.sol-hl-r {
+  font-weight: bold;
+  color: red;
+}
+
+.sol-table {
+  width: auto;
+}
+
+.table-sm>:not(caption)>*>* {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
