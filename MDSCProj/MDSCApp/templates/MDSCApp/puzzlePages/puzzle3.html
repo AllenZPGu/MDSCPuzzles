@@ -11,7 +11,7 @@
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
     <p class="flavourtext"><b>Errata 09:52am 29/06:</b> The word "poems" in the 2nd clue was changed to "articles". The word "Vanguard" in the 11th clue was capitalised. The PDF has also been updated with these changes.</p>
     <a class="btn btn-primary" href="/pdf/3/" target="_blank" style="margin: 5px;">Download PDF version</a>
-    {% if sols %}
+    {% if not sols %}
       <a class="btn btn-success" href="/solve/{{puzInfo.puzId}/" style="margin: 5px;">Submit a guess</a>
     {% else %}
       <a class="btn btn-info" href="/solution/{{puzInfo.puzId}/" style="margin: 5px;">View solution</a>

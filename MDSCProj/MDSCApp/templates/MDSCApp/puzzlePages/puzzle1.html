@@ -10,7 +10,7 @@
     <h4>Puzzle {{puzInfo.puzId}}</h4>
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
     <a class="btn btn-primary" href="/pdf/1/" target="_blank" style="margin: 5px;">Download PDF version</a>
-    {% if sols %}
+    {% if not sols %}
       <a class="btn btn-success" href="/solve/1/" style="margin: 5px;">Submit a guess</a>
     {% else %}
       <a class="btn btn-info" href="/solution/1/" style="margin: 5px;">View solution</a>
