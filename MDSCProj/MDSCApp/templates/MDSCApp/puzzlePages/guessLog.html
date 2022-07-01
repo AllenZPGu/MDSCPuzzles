@@ -30,13 +30,13 @@
     <div class="table-responsive-sm">
       <table class="table sol-table table-sm">
         <thead style="font-weight: bold;">
-          <tr><th>Guess</th><th>Frequency</th></tr>
+          <tr><th>Frequency</th><th>Guess</th></tr>
         </thead>
         <tbody>
           <tr style="font-weight:bold;"><td>Total</td><td>{{puzInfo.guesses}}</td></tr>
           {% for item in freqItems %}
             <tr {% if item.0 in answers %}class="table-success"{% endif %}>
-              <td style="word-wrap: break-word; max-width: 400px; white-space: normal;">{{item.0}}</td><td>{{item.1}}</td>
+              <td>{{item.1}}</td><td style="word-wrap: break-word; max-width: 400px; white-space: normal;">{{item.0}}</td>
             </tr>
           {% endfor %}
         </tbody>
