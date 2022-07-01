@@ -192,3 +192,28 @@ def solution(request, puzzleId):
     x = Guess.objects.filter(puzzle=puzzleId)
     puzInfo = {'id': puzzleId, 'title': getTitle(puzzleId), 'solves': len(x.filter(correct=True)), 'guesses': len(x)}
     return render(request, f'MDSCApp/puzzlePages/sol{puzzleId}.html', {'puzInfo':puzInfo})
+
+def wrapup(request):
+    return render(request, f'MDSCApp/wrapup.html')
+
+def guesslog(request, puzzleId):
+    try:
+        if datetime.datetime.now(tz) < settings.SOLUTION_TIME:
+            raise Http404()
+    except:
+        raise Http404()
+
+    x = Guess.objects.filter(puzzle=puzzleId)
+    ans = answers[puzzleId]
+    solveItems = x.filter(correct=True)
+    solveItems = sorted(solveItems, key=lambda z:z.submitTime)
+    solveItems = [{'time':secToHMS(calcSolveTime(puzzleId, i.submitTime)), 'name':i.name} for i in solveItems]
+
+    rawGuesses = [i.guess for i in x]
+    uniqueGuesses = list(set(rawGuesses))
+    y = [(i, rawGuesses.count(i)) for i in uniqueGuesses]
+    y = sorted(y, key=lambda i:i[0])
+    y = sorted(y, key=lambda i:i[1])
+
+    puzInfo = {'id': puzzleId, 'title': getTitle(puzzleId), 'solves': len(x.filter(correct=True)), 'guesses': len(x)}
+    return render(request, f'MDSCApp/puzzlePages/guessLog.html', {'puzInfo':puzInfo, 'solveItems':solveItems, 'freqItems':y, 'answers': ans})

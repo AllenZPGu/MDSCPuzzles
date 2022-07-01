@@ -69,6 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 .link-nav{
   display: table-cell;
   text-align: center;
+  width: auto;
 }
 
 .navbar-light .navbar-nav .nav-link{

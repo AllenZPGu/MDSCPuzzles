@@ -1,0 +1,47 @@
+{% extends 'MDSCApp/base.html' %}
+{% load static %}
+
+{% block title %}Guesslog Puzzle {{puzInfo.id}}: {{puzInfo.title}}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/sol.css'%}">
+
+<div class="container inner-container">
+  <center>
+    <h4>Guesslog for Puzzle {{puzInfo.id}}</h4>
+    <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <h5>Solves: {{puzInfo.solves}}</h5>
+    <h5>Guesses: {{puzInfo.guesses}}</h5>
+    <hr>
+    <h4>Solve history</h4>
+    <p>These individuals solved the puzzle at the stated time.</p>
+    <table class="table sol-table table-sm">
+      <thead style="font-weight: bold;">
+        <tr><th>Solve time<br>(hh:mm:ss)</th><th>Solver</th></tr>
+      </thead>
+      <tbody>
+        {% for item in solveItems %}
+          <tr><td>{{item.time}}</td><td>{{item.name}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <hr>
+    <h4>Guess frequencies</h4>
+    <table class="table sol-table table-sm">
+      <thead style="font-weight: bold;">
+        <tr><th>Guess</th><th>Frequency</th></tr>
+      </thead>
+      <tbody>
+        {% for item in freqItems %}
+
+          <tr {% if item.0 in answers %}class="table-success"{% endif %}>
+            <td>{{item.0}}</td><td>{{item.1}}</td>
+          </tr>
+        {% endfor %}
+        <tr style="font-weight:bold;"><td>Total</td><td>{{puzInfo.guesses}}</td></tr>
+      </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

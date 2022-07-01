@@ -35,11 +35,12 @@ def stripGuess(x):
     except:
         return ''
 
-def checkGuessCorrect(puzzleId, x):
-    answers = {1:['ELIZABETHHOLMES', 'HOLMES'],
+answers = {1:['ELIZABETHHOLMES', 'HOLMES'],
                2:['TOXIC'],
                3:['ACOUSTICNEUROMA'],
                4:['HOMESICKNESS', 'HOMESICK']}
+
+def checkGuessCorrect(puzzleId, x):
     try:
         if stripGuess(x) == '':
             return False

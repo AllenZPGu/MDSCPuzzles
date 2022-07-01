@@ -21,4 +21,6 @@ urlpatterns = [
     path('wardleAjax/', views.wardleAjax),
     path('wardleAjaxCasual/', views.wardleAjaxCasual),
     path('solution/<int:puzzleId>/', views.solution),
+    path('guesslog/<int:puzzleId>/', views.guesslog),
+    path('wrapup/', views.wrapup),
 ]
