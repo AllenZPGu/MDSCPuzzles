@@ -213,7 +213,7 @@ def guesslog(request, puzzleId):
     uniqueGuesses = list(set(rawGuesses))
     y = [(i, rawGuesses.count(i)) for i in uniqueGuesses]
     y = sorted(y, key=lambda i:i[0])
-    y = sorted(y, key=lambda i:i[1])
+    y = sorted(y, key=lambda i:-i[1])
 
     puzInfo = {'id': puzzleId, 'title': getTitle(puzzleId), 'solves': len(x.filter(correct=True)), 'guesses': len(x)}
     return render(request, f'MDSCApp/puzzlePages/guessLog.html', {'puzInfo':puzInfo, 'solveItems':solveItems, 'freqItems':y, 'answers': ans})
