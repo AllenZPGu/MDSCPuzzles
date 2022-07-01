@@ -6,7 +6,7 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/sol.css'%}">
 
-<div class="container inner-container">
+<div class="container inner-container" style="border-color: #2a79bd;">
   <center>
     <h4>Solution for Puzzle {{puzInfo.id}}</h4>
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
@@ -16,8 +16,62 @@
     <br>
   </center>
 
-  <h4>Solution is work in progress. Check back in a few hours.</h4>
+  <p>Twelve doctors have rung you about something, but you can't quite understand them because you're not hearing them clearly!</p>
 
+  <p>The first step is to figure out exactly what we do with these cryptic-style clues. Ignoring the static noise for now, the first clue reads:</p> 
+
+  <center><p>1. <b>ID physician:</b> shout bumbling clumsy idiot Vesper Lynd actress's first name</p></center>
+
+  <p>The key is to not read this literally; we must instead split this clue into several parts, namely:</p>
+  <ul>
+    <li><b>shout</b> = YELL</li>
+    <li><b>bumbling clumsy idiot</b> = OAF</li>
+    <li><b>Vesper Lynd actress's first name</b> = EVA</li>
+  </ul>
+
+  <p>Reading this aloud gives YELL + OAF + EVA = <b>YELLOW FEVER</b>, which is a disease treated by an ID physician! Moreover, note that YELLOW FEVER has 11 letters, while the original clue (including the static noise now) has 11 words. This strongly suggests that we take the letters marked by the static noise. As the static noises occupy the 5th and 7th words, we take the 5th and 7th letter from YELL<span class='sol-hl-r'>O</span>W <span class='sol-hl-r'>F</span>EVER, which are O and F respectively.</p>
+
+  <p>(Regarding the static noises, note that each call has two static noises, namely *CLLLLT* and *CRRRRT* in that order. "L" and "R" of course stand for left and right.)
+
+  <p>Doing the same for all 12 calls, we have the following. Note that the emojis 👈 and 👉 stand for the left and right static noises respectively. Letters extracted from the left-static are marked with red, while right-static letters are marked with blue.</p>
+
+  <center>
+    <div class="table-responsive-sm">
+      <table class="table sol-table table-sm">
+        <thead style="font-weight: bold;">
+          <tr><td>Clue</td><td>Charades</td><td>Disease</td></tr>
+        </thead>
+        <tbody>
+          <tr><td>(shout) + (bumbling clumsy idiot) + 👈 (Vesper 👉 Lynd actress's first name)</td><td>YELL + OAF + EVA</td><td>YELL<span class='sol-hl-r'>O</span>W <span class='sol-hl-b'>F</span>EVER</td></tr>
+          <tr><td>👈 (unused) + (people 👉 who create literature, articles)</td><td>NEW + WRITERS</td><td><span class='sol-hl-r'>N</span>EU<span class='sol-hl-b'>R</span>ITIS</td></tr>
+          <tr><td>(fiend 👈 or 👉 monster) + (king of Persia)</td><td>DEMON + SHAH</td><td>D<span class='sol-hl-r'>E</span>M<span class='sol-hl-b'>E</span>NTIA</td></tr>
+          <tr><td>(Tik's partner) + (hand detergent) 👈 to (Scottish girl) + (prophet from Abrahamic religions) 👉</td><td>TOK + SOAP + LASS + MOSES</td><td>TOXO<span class='sol-hl-r'>P</span>LASMOSI<span class='sol-hl-b'>S</span></td></tr>
+          <tr><td>(recent) + (cut grass) + 👈 for (the Norse 👉 thunder god) + (lumberjacking tool)</td><td>NEW + MOW + THOR + AXE</td><td>PNE<span class='sol-hl-r'>U</span>MOT<span class='sol-hl-b'>H</span>ORAX</td>
+          <tr><td>👈 (one of 👉 the ankle bones) + (stitch with) + (the hearing appendage)</td><td>TALUS + SEAM + EAR</td><td><span class='sol-hl-r'>T</span>HA<span class='sol-hl-b'>L</span>ASSAEMIA</td></tr>
+          <tr><td>(the Royal Queensland Show) + (plants) + (German 👈 👉 yes)</td><td>EKKA + LAYS + JA</td><td>ACHALA<span class='sol-hl-r'>S</span><span class='sol-hl-b'>I</span>A</td></tr>
+          <tr><td>(giant) + (Scomo’s favourite carbon 👈 fuel) + (situated above) 👉</td><td>MEGA + COAL + ON</td><td>MEGA<span class='sol-hl-r'>C</span>OLO<span class='sol-hl-b'>N</span></td></tr>
+          <tr><td>(desperate) + (flightless bird native to 👈 South 👉 America)</td><td>DIRE + RHEA</td><td>DIARR<span class='sol-hl-r'>H</span>O<span class='sol-hl-b'>E</span>A</td></tr>
+          <tr><td>(tide 👈 recedes out from) + (the Nutbush City Limit singer's 👉 first name) + (usually)</td><td>EBBS + TINA + NORMALLY</td><td>E<span class='sol-hl-r'>B</span>STEIN ANO<span class='sol-hl-b'>M</span>ALY</td></tr>
+          <tr><td>(Vanguard 👈 ASX code) + 👉 (prompt) + (Zippos, as an example)</td><td>VAS + CUE + LIGHTERS</td><td>V<span class='sol-hl-r'>A</span>SC<span class='sol-hl-b'>U</span>LITIS</td></tr>
+          <tr><td>(abject fear 👈 of) + (drag) + (female 👉 parent)</td><td>TERROR + TOW + MA</td><td>TE<span class='sol-hl-r'>R</span>ATO<span class='sol-hl-b'>M</span>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </center>
+
+  <p>The twelve left-static letters give the clue phrase <span class='sol-hl-r'>ONE PUTSCH BAR</span>, which, applying the same mechanism of this puzzle again, gives <b>A + COUP + STICK</b>. Similarly, the right-static letters give <span class='sol-hl-b'>FRESH LINE MUM</span>, which is <b>NEW + ROW + MA</b>.</p>
+
+  <p>Reading these two answers aloud gives the final puzzle solution of <span class='sol-hl'>ACOUSTIC NEUROMA</span>, a possible differential diagnosis for hearing loss!
+
+  <hr>
+  <center>
+    <h4>Author's note</h4>
+    <h6>Credit: Allen Gu</h6>
+  </center>
+
+  <p>Originally we wanted to make an audio puzzle (ie. using actual audio clips) but quickly realised that'll be infeasible at MDSC. So, we came up with the next best thing; phonetics!</p>
+
+  <p>This puzzle is our first foray into cryptic-crossword-type clues at MDSC. Most solvers are unfamiliar with cryptic clues, so we made these clues cryptic-lite, using only charades as a mechanism. If you liked this puzzle, chances are it's because you enjoyed the cryptic aspect of it! If you want to learn more about cryptic crosswords, we can't recommend <a href="https://www.allenandunwin.com/browse/books/general-books/biography-autobiography/Puzzled-David-Astle-9781743314296" target="_blank"><font style='font-style:italic;'>Puzzled</font> by David Astle</a> enough. It is the half-autobiography, half-cryptic-crossword-guide written by the undisputed king of Australian crosswording David Astle, aka DA, aka the dictionary guy on <font style='font-style:italic;'>Letters and Numbers</font>.</p>
 
 </div>
 

@@ -8,6 +8,11 @@
   color: red;
 }
 
+.sol-hl-b {
+  font-weight: bold;
+  color: blue;
+}
+
 .sol-table {
   width: auto;
 }

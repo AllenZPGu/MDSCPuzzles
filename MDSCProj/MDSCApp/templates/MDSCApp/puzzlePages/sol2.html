@@ -4,18 +4,47 @@
 {% block title %}Puzzle {{puzInfo.id}} Solution: {{puzInfo.title}}{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'MDSCApp/css/sol.css'%}">
 
-<div class="container inner-container">
+<div class="container inner-container" style="border-color: #235c4a;">
   <center>
     <h4>Solution for Puzzle {{puzInfo.id}}</h4>
     <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <h4 style="margin-bottom: 1rem">Solution: <span class="sol-hl">TOXIC</span></h4>
     <h5>Solves: {{puzInfo.solves}}</h5>
     <h5>Guesses: {{puzInfo.guesses}}</h5>
+    <br>
   </center>
 
+  <p>Wardle is a word game that works identically to the famous <a href="https://www.nytimes.com/games/wordle/index.html">Wordle game</a>. The objective is to guess the target word within 6 guesses, with the game telling you whether the letters you're using per guess are correct, misplaced or wrong. Refer to the Wordle instructions for a more detailed explanation of these rules.</p>
 
-  <h4>Solution is work in progress. Check back in a few hours.</h4>
+  <p>The difference is that Wardle only accepts medically-relevant words. That is the case for the first five Wardles marked 1-5. The solutions for those five Wardles are, in order:</p>
 
+  <ol>
+    <li><b>HEART</b></li>
+    <li><b>ATOPY</b></li>
+    <li><b>SHIGA</b></li>
+    <li><b>LASIX</b></li>
+    <li><b>LUMEN</b></li>
+  </ol>
+
+  <p>The sixth Wardle, marked #♾️, is different again; it accepts exactly six words, five of which are the solutions to the previous Wardles. Entering those five words into this meta-Wardle allows us to deduce that <span class='sol-hl'>TOXIC</span> is the solution of Wardle #♾️, and hence also of the whole puzzle.</p>
+
+  <hr>
+  <center>
+    <h4>Authors' note</h4>
+    <h6>Credit: Allen Gu, Daniel Tao</h6>
+  </center>
+
+  <p>A medical Wordle called Wardle was joked about between us for a while, until we realised we can make that joke into reality!</p>
+
+  <p>To generate the word list, we used <a href="https://github.com/glutanimate/wordlist-medicalterms-en" target="_blank">this word bank of medical terms</a>, within which there are 4000+ five-letter words and 3000+ four-letter words that could be pluralised. This is clearly too big for us so we decided to abandon this and find a different approach...</p>
+
+  <p>...lol jokes, Dan actually went through all 7500 possible words and manually selected those that were relevant to medicine. Wow. That being said, this was obviously not a highly-rigorous process of word selection (no offense Dan), so we apologise if there are omissions or inclusions from the word list.</p>
+
+  <p>The code for the actual Wardle game itself was modified from <a href="https://github.com/WebDevSimplified/wordle-clone" target="_blank">this code</a>. </p>
+
+  <p>This puzzle was our first interactive puzzle, and we hope you've liked it! The mechanism for this is well-known to most solvers, and hence the puzzle was relatively easy; this was certainly reflected in the solve rates.</p>
 </div>
 
 {% endblock %}
