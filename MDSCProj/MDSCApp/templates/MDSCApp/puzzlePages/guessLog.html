@@ -8,8 +8,8 @@
 
 <div class="container inner-container">
   <center>
-    <h4>Guesslog for Puzzle {{puzInfo.id}}</h4>
-    <h2 style="margin-bottom: 1rem">{{puzInfo.title}}</h2>
+    <h4>Guesslog for <a href="/puzzle/{{puzInfo.id}}/">Puzzle {{puzInfo.id}}</a></h4>
+    <h2 style="margin-bottom: 1rem"><a href="/puzzle/{{puzInfo.id}}/">{{puzInfo.title}}</a></h2>
     <h5>Solves: {{puzInfo.solves}}</h5>
     <h5>Guesses: {{puzInfo.guesses}}</h5>
     <hr>
@@ -30,7 +30,7 @@
     <div class="table-responsive-sm">
       <table class="table sol-table table-sm">
         <thead style="font-weight: bold;">
-          <tr><th>Frequency</th><th>Guess</th></tr>
+          <tr><th>Freq.</th><th>Guess</th></tr>
         </thead>
         <tbody>
           <tr style="font-weight:bold;"><td>Total</td><td>{{puzInfo.guesses}}</td></tr>
